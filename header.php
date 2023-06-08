@@ -141,23 +141,57 @@ error_reporting(0);
     <a href="index.php" class="active">Home</a>
     <a href="services.php">SERVICES</a>
     <a href="about.php">ABOUT US</a>
-   
-      <div class="dropdown">
-        <button class="dropbtn">
-          PROFILE
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="#">UDATE PROFILE</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
 
-      <a href="faqs.php">FAQS</a>
-      <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
+    <div class="dropdown">
+      <button class="dropbtn">
+
+        <?php
+        $email = $_SESSION['login'];
+        $sql = "SELECT fname FROM tblstudents WHERE email=:email ";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_OBJ);
+        if ($query->rowCount() > 0) {
+          foreach ($results as $result) {
+            // echo "<i class='fa-regular fa-user'></i>";
+            echo htmlentities($result->fname);
+          }
+        } ?>
+
+        <?php
+        $email = $_SESSION['login'];
+        $sql = "SELECT fullname FROM tblstaff WHERE email=:email ";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_OBJ);
+        if ($query->rowCount() > 0) {
+          foreach ($results as $result) {
+
+            // echo "<i class='fa-regular fa-user'></i>";
+            echo htmlentities($result->fullname);
+          }
+        } ?>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <ul style="background-color: #333;">
+        <?php if ($_SESSION['login']) { ?>
+          <div class="dropdown-content" >
+            <li> <a href="profile.php">UDATE PROFILE</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="logout.php">LOGOUT</a></li>
+          </div>
+        <?php } ?>
+      </ul>
+    </div>
+
+    <a href="faqs.php">FAQS</a>
+
+    <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
+
 
   <script>
     function myFunction() {

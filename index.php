@@ -4,13 +4,11 @@ error_reporting(0);
 include('config.php');
 ?>
 
-<?php if (strlen($_SESSION['login']) == 0) {
-?>
-    <div class="login_btn"> <a href="studentlogin.php" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
-<?php } else {
 
-    // echo "Welcome To carpooling page";
-} ?>
+
+
+
+
 
 <html>
 <meta charset="utf-8">
