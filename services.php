@@ -198,17 +198,48 @@ include "header.php";
             </div> -->
             <div class="form-group">
                 <label for="exampleInputPassword1">Nature of your Problem</label>
-                <textarea style="margin: 5px; height:130px" type="text" name="department" class="form-control" id="myInput" placeholder="describe your problem" required /></textarea>
+                <textarea style="margin: 5px; height:130px" type="text" name="problem" class="form-control" id="myInput" placeholder="describe your problem" required /></textarea>
             </div>
 
             <?php if ($_SESSION['login']) { ?>
                 <button type="submit" id="submit" class="btn btn-primary" name="submit" value="signUp">SUBMIT</button>
             <?php } else { ?>
-                <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login to request any service</a>
-                
+                <a href="studentlogin.php" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login to request any service</a>
+
 
             <?php } ?>
         </form>
+
+
+
+
+        <?php
+        if (isset($_POST['submit'])) {
+            $rdate = $_POST['datereported'];
+            $rtime = $_POST['timereported'];
+            $rproblem = $_POST['problem'];
+           $email = $_SESSION['login'];
+            $sql = "INSERT INTO  tblservice(datereported,timereported,problem,email) VALUES(:rdate,:rtime,:rproblem,:email)";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':rdate', $rdate, PDO::PARAM_STR);
+            $query->bindParam(':rtime', $rtime, PDO::PARAM_STR);
+            $query->bindParam(':rproblem', $rproblem, PDO::PARAM_STR);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $lastInsertId = $dbh->lastInsertId();
+            if ($lastInsertId) {
+                $msg = "Your Request Service  Successfully submited";
+                echo "<script>alert(' Your Request Service  Successfully submited');</script>";
+                // header('location:index.php');
+            } else {
+                echo "<script>alert('Something went wrong. Please try again');</script>";
+            }
+        }
+
+
+        ?>
+
+
         <script src="" async defer></script>
         <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
