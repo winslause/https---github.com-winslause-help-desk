@@ -50,47 +50,7 @@ include "header.php";
 
 
 
-<!-- Lets update our profiles -->
 
-
-<?php
-if (isset($_POST['submit'])) {
-    $fname = $_POST['fullname'];
-    $regn = $_POST['regnumber'];
-    $emailn = $_POST['emailaddress'];
-    $dep = $_POST['department'];
-    $course = $_POST['course'];
-    $gender = $_POST['gender'];
-    $idno = $_POST['idnumber'];
-    $fon = $_POST['phone'];
-    $job = $_POST['jobtitle'];
-   
-    $sql = "UPDATE tblstudents set fname=:fname,anumber=:regn,email=:emailn,department=:dep,course=:course,gender=:gender,idnumber=:idno,phone=:fon WHERE email=:emailn ";
-    $sql ="UPDATE tblstaff set fullname=:fname,numberid=:idno,email=:emailn,department=:dep,jobtitle=:job,phone=:fon,gender=:gender where email=:emailn ";
-
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':fname', $fname, PDO::PARAM_STR);
-    $query->bindParam(':regn', $regn, PDO::PARAM_STR);
-    $query->bindParam(':emailn', $emailn, PDO::PARAM_STR);
-    $query->bindParam(':dep', $dep, PDO::PARAM_STR);
-    $query->bindParam(':course', $course, PDO::PARAM_STR);
-    $query->bindParam(':gender', $gender, PDO::PARAM_STR);
-    $query->bindParam(':idno', $idno, PDO::PARAM_STR);
-    $query->bindParam(':fon', $fon, PDO::PARAM_STR);
-    $query->bindParam(':job', $job, PDO::PARAM_STR);
-    $query->execute();
-    $msg = "Profile Updated Successfully";
-    // $lastInsertId = $dbh->lastInsertId();
-    // if ($lastInsertId) {
-    //     echo "<script>alert('Registration successfull. Now you can login');</script>";
-    //     header('location:studentlogin.php');
-    // } else {
-    //     echo "<script>alert('Something went wrong. Please try again');</script>";
-    // }
-}
-
-
-?>
 
 
 
@@ -155,10 +115,111 @@ if (isset($_POST['submit'])) {
             cursor: pointer;
             border: solid 1px #BA68C8
         }
+
+        inputs {
+            margin: 2px;
+        }
     </style>
 </head>
 
-<body style="background-color: darkgray;">
+<body style="background-color: gray;">
+    <!-- Lets update our profiles -->
+    <?php if ($_SESSION['login']) { ?>
+
+        <?php
+        if (isset($_POST['submit'])) {
+            $fname1 = $_POST['fullname'];
+            // $regn = $_POST['regnumber'];
+            // $emailn = $_POST['emailaddress'];
+            $dep = $_POST['department'];
+            // $course = $_POST['course'];
+            $gender1 = $_POST['gender'];
+            $idno = $_POST['idnumber'];
+            $fon = $_POST['phone'];
+            $job = $_POST['jobtitle'];
+            $email = $_SESSION['login'];
+
+            // $sql = "update tblstudents set fname=:fname,anumber=:regn, department=:dep,course=:course,gender=:gender,idnumber=:idno,phone=:fon WHERE email=:preemail ";
+
+            $sql = "UPDATE tblstaff SET fullname = :fname1 ,numberid = :idno , department = :dep , jobtitle = :job , phone = :fon , gender = :gender1 WHERE email = :email";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':fname1', $fname1, PDO::PARAM_STR);
+            // $query->bindParam(':regn', $regn, PDO::PARAM_STR);
+            // $query->bindParam(':emailn', $emailn, PDO::PARAM_STR);
+            $query->bindParam(':dep', $dep, PDO::PARAM_STR);
+            // $query->bindParam(':course', $course, PDO::PARAM_STR);
+            $query->bindParam(':gender1', $gender1, PDO::PARAM_STR);
+            $query->bindParam(':idno', $idno, PDO::PARAM_STR);
+            $query->bindParam(':fon', $fon, PDO::PARAM_STR);
+            $query->bindParam(':job', $job, PDO::PARAM_STR);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $msg = "Profile Updated Successfully";
+            header("location: index.php");
+            // // $lastInsertId = $dbh->lastInsertId();
+            // if ($lastInsertId) {
+            //     echo "<script>alert('Registration successfull. Now you can login');</script>";
+            //     header('location:studentlogin.php');
+            // } else {
+            //     echo "<script>alert('Something went wrong. Please try again');</script>";
+            // }
+        }
+
+
+        ?>
+
+    <?php } ?>
+
+
+
+
+
+
+    <?php if ($_SESSION['login']) { ?>
+
+        <?php
+        if (isset($_POST['submit'])) {
+            $fname1 = $_POST['fullname'];
+            $regn = $_POST['regnumber'];
+            // $emailn = $_POST['emailaddress'];
+            $dep = $_POST['department'];
+            $course = $_POST['course'];
+            $gender1 = $_POST['gender'];
+            $idno = $_POST['idnumber'];
+            $fon = $_POST['phone'];
+            // $job = $_POST['jobtitle'];
+            $email = $_SESSION['login'];
+
+            $sql = "UPDATE tblstudents SET fname = :fname1 , anumber = :regn , department = :dep , course = :course , gender = :gender1 , idnumber = :idno , phone= :fon WHERE email=:email ";
+
+            // $sql = "UPDATE tblstaff SET fullname = :fname1 ,numberid = :idno , department = :dep , jobtitle = :job , phone = :fon , gender = :gender1 WHERE email = :email";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':fname1', $fname1, PDO::PARAM_STR);
+            $query->bindParam(':regn', $regn, PDO::PARAM_STR);
+            // $query->bindParam(':emailn', $emailn, PDO::PARAM_STR);
+            $query->bindParam(':dep', $dep, PDO::PARAM_STR);
+            $query->bindParam(':course', $course, PDO::PARAM_STR);
+            $query->bindParam(':gender1', $gender1, PDO::PARAM_STR);
+            $query->bindParam(':idno', $idno, PDO::PARAM_STR);
+            $query->bindParam(':fon', $fon, PDO::PARAM_STR);
+            // $query->bindParam(':job', $job, PDO::PARAM_STR);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $msg = "Profile Updated Successfully";
+            header("location: index.php");
+            // // $lastInsertId = $dbh->lastInsertId();
+            // if ($lastInsertId) {
+            //     echo "<script>alert('Registration successfull. Now you can login');</script>";
+            //     header('location:studentlogin.php');
+            // } else {
+            //     echo "<script>alert('Something went wrong. Please try again');</script>";
+            // }
+        }
+
+
+        ?>
+
+    <?php } ?>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -172,43 +233,61 @@ if (isset($_POST['submit'])) {
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
-                    <form method="post">
-                        <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Full Name</label><input name="fullname" type="text" class="form-control" placeholder="<?php echo htmlentities($result->fullname); ?> <?php echo htmlentities($results->fname); ?>" value=""></div>
-
+                    <form method="post" style="padding: 30px; width: 80%" name="signup" onSubmit="return valid();">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Full Name</label>
+                            <input type="text" name="fullname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo htmlentities($result->fullname); ?> <?php echo htmlentities($results->fname); ?>" />
+                            <small id="emailHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Registration Number(If Student)</label><input name="regnumber" type="text" class="form-control" placeholder="<?php echo htmlentities($results->anumber); ?>" value=""></div>
-                            <div class="col-md-12"><label class="labels">Email</label><input name="emailaddress" type="email" class="form-control" placeholder="<?php echo htmlentities($results->email); ?> <?php echo htmlentities($result->email); ?> " value=""></div>
-                            <div class="col-md-12"><label class="labels">Department</label><input name="department" type="text" class="form-control" placeholder="department" value=""></div>
-
-
-                            <div class="col-md-12"><label class="labels">Course</label><input name="course" type="text" class="form-control" placeholder="course" value=""></div>
-
-
-                            <div class="col-md-12"><label class="labels">Gender</label>
-                            <select name="gender" type="text" class="form-control" placeholder="enter address line 2" value="">
-
-                                    <option value="volvo">Male</option>
-                                    <option value="saab">Female</option>
-                                    <option value="saab">Other</option>
-                                </select></div>
-
-
-
-                            <div class="col-md-12"><label class="labels">ID Number</label><input name="idnumber" type="text" class="form-control" placeholder="id number" value=""></div>
-                            <div class="col-md-12"><label class="labels">Phone</label><input name="phone" type="number" class="form-control" placeholder="phone" value=""></div>
-                            <div class="col-md-12"><label class="labels">Job Title (Staff)</label><input name="jobtitle" type="text" class="form-control" placeholder="jobtitle" value=""></div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Registration Number(student)</label>
+                            <input type="text" name="regnumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" <?php echo htmlentities($results->anumber); ?>" />
+                            <small id=" emailHelp" class="form-text text-muted"></small>
                         </div>
-                        <!-- <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                    </div> -->
-                        <div class="mt-5 text-center"><input name="submit" class="btn btn-primary profile-button" type="submit" value="UPDATE PROFILE"></input></div>
-                </div>
-            </div>
-            </form>
-            <!-- <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Department</label>
+                            <input name="department" type="text" class="form-control" id="emailid" aria-describedby="emailHelp" placeholder="<?php echo htmlentities($result->department); ?> <?php echo htmlentities($results->department); ?>" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Course(student)</label>
+                            <input type="text" name="course" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($results->course); ?>" />
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Gender</label>
+                            <select name="gender" class="form-select" aria-label="Default select example">
+
+                                <option selected><label for="exampleInputPassword1"><?php echo htmlentities($result->gender); ?> <?php echo htmlentities($results->gender); ?></label></option>
+                                <option value="MALE">MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                                <option value="OTHER">OTHER</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">ID Number</label>
+                            <input type="number" name="idnumber" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->numberid); ?> <?php echo htmlentities($results->idnumber); ?>""  />
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="exampleInputPassword1">Phone Number</label>
+                            <input type="number" name="phone" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->phone); ?> <?php echo htmlentities($results->phone); ?>""  />
+                        </div>
+                        <div class=" form-group">
+                            <label for="exampleInputPassword1">Job Title (Tech)</label>
+                            <input type="text" name="jobtitle" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->jobtitle); ?> " />
+                        </div>
+                        <div class=" form-check">
+                            <!-- <input type="checkbox" style="margin:1px" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+                        </div>
+
+                        <button type="submit" id="submit" class="btn btn-primary" name="submit" value="">UPDATE PROFILE</button>
+                    </form>
+                    <!-- <div class="col-md-4">
                 <div class="p-3 py-5">
                     <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
                     <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
@@ -216,9 +295,9 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </div> -->
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
     </div>
 
     <script src="" async defer></script>

@@ -70,7 +70,7 @@ try {
   <div align="center">
     <h2>Student Login</h2>
     
-      <form method="post" style="padding: 30px; width: 30%">
+      <form method="post" style="padding: 30px; width: 30%" action="">
 
         <div class="form-group">
           <label for="exampleInputEmail1">Email</label>

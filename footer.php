@@ -183,7 +183,7 @@ error_reporting(0);
             <a href="studentlogin.php">STUDENT</a>
           </li>
           <li>
-            <a href="#">ADMIN</a>
+            <a href="admin/index.php">ADMIN</a>
           </li>
           <li>
             <a href="#support">Support</a>

@@ -161,7 +161,7 @@ error_reporting(0);
 
         <?php
         $email = $_SESSION['login'];
-        $sql = "SELECT fullname FROM tblstaff WHERE email=:email ";
+        $sql = "SELECT * FROM tblstaff WHERE email=:email ";
         $query = $dbh->prepare($sql);
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->execute();
@@ -172,13 +172,18 @@ error_reporting(0);
             // echo "<i class='fa-regular fa-user'></i>";
             echo htmlentities($result->fullname);
           }
-        } ?>
+        }
+        // echo htmlentities("PROFILE");
+
+        ?>
+
+
         <i class="fa fa-caret-down"></i>
       </button>
       <ul style="background-color: #333;">
         <?php if ($_SESSION['login']) { ?>
-          <div class="dropdown-content" >
-            <li> <a href="profile.php">UDATE PROFILE</a></li>
+          <div class="dropdown-content">
+            <li> <a href="profile.php">VIEW PROFILE</a></li>
             <li><a href="#">Link 2</a></li>
             <li><a href="#">Link 3</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
@@ -188,6 +193,9 @@ error_reporting(0);
     </div>
 
     <a href="faqs.php">FAQS</a>
+    <?php if ($_SESSION['login']) { ?>
+      <a href="faqs.php">Report</a>
+    <?php } ?>
 
     <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
