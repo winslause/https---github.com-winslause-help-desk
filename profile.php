@@ -138,10 +138,15 @@ include "header.php";
             $fon = $_POST['phone'];
             $job = $_POST['jobtitle'];
             $email = $_SESSION['login'];
+            $vimage = $_FILES["img1"]["name"];
+
+
+            move_uploaded_file($_FILES["img1"]["tmp_name"], "img/images/" . $_FILES["img1"]["name"]);
+
 
             // $sql = "update tblstudents set fname=:fname,anumber=:regn, department=:dep,course=:course,gender=:gender,idnumber=:idno,phone=:fon WHERE email=:preemail ";
 
-            $sql = "UPDATE tblstaff SET fullname = :fname1 ,numberid = :idno , department = :dep , jobtitle = :job , phone = :fon , gender = :gender1 WHERE email = :email";
+            $sql = "UPDATE tblstaff SET fullname = :fname1 ,numberid = :idno , department = :dep , jobtitle = :job , phone = :fon , gender = :gender1, profilep = :vimage WHERE email = :email";
             $query = $dbh->prepare($sql);
             $query->bindParam(':fname1', $fname1, PDO::PARAM_STR);
             // $query->bindParam(':regn', $regn, PDO::PARAM_STR);
@@ -153,6 +158,7 @@ include "header.php";
             $query->bindParam(':fon', $fon, PDO::PARAM_STR);
             $query->bindParam(':job', $job, PDO::PARAM_STR);
             $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':vimage', $vimage, PDO::PARAM_STR);
             $query->execute();
             $msg = "Profile Updated Successfully";
             header("location: index.php");
@@ -190,7 +196,13 @@ include "header.php";
             // $job = $_POST['jobtitle'];
             $email = $_SESSION['login'];
 
-            $sql = "UPDATE tblstudents SET fname = :fname1 , anumber = :regn , department = :dep , course = :course , gender = :gender1 , idnumber = :idno , phone= :fon WHERE email=:email ";
+            $vimage = $_FILES["img1"]["name"];
+
+
+            move_uploaded_file($_FILES["img1"]["tmp_name"], "img/images/" . $_FILES["img1"]["name"]);
+
+
+            $sql = "UPDATE tblstudents SET fname = :fname1 , anumber = :regn , department = :dep , course = :course , gender = :gender1 , idnumber = :idno , phone= :fon, profilep = :vimage WHERE email=:email ";
 
             // $sql = "UPDATE tblstaff SET fullname = :fname1 ,numberid = :idno , department = :dep , jobtitle = :job , phone = :fon , gender = :gender1 WHERE email = :email";
             $query = $dbh->prepare($sql);
@@ -204,6 +216,7 @@ include "header.php";
             $query->bindParam(':fon', $fon, PDO::PARAM_STR);
             // $query->bindParam(':job', $job, PDO::PARAM_STR);
             $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':vimage', $vimage, PDO::PARAM_STR);
             $query->execute();
             $msg = "Profile Updated Successfully";
             header("location: index.php");
@@ -279,6 +292,10 @@ include "header.php";
                         <div class=" form-group">
                             <label for="exampleInputPassword1">Job Title (Tech)</label>
                             <input type="text" name="jobtitle" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->jobtitle); ?> " />
+                        </div>
+                        <div class=" form-group">
+                            <label for="exampleInputPassword1">Change Profile Picture</label>
+                            <input type="file" name="img1" class="form-control" id="exampleInputPassword1" placeholder=" " />
                         </div>
                         <div class=" form-check">
                             <!-- <input type="checkbox" style="margin:1px" class="form-check-input" id="exampleCheck1">

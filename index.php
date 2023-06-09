@@ -19,42 +19,44 @@ include('config.php');
 <!-- <link rel="stylesheet" href="style.css"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
+<?php
+include "header.php";
+?>
+</div>
 
 <body style="background-color: white;">
     <div>
-        <?php
-        include "header.php";
-        ?>
-    </div>
 
-    <div>
 
-        <h1>home page data</h1>
-        <p>1 hello</p>
-        <h2>home page data</h2>
-        <p>1 hello</p>
-        <h4>home page data</h4>
-        <p>1 hello</p>
-        <h5>home page data</h5>
-        <p>1 hello</p>
-        <h5>home page data</h5>
-        <p>1 hello</p>
-        <h5>home page data</h5>
-        <p>1 hello</p>
+        <div>
 
-    </div>
+            <h1>home page data</h1>
+            <p>1 hello</p>
+            <h2>home page data</h2>
+            <p>1 hello</p>
+            <h4>home page data</h4>
+            <p>1 hello</p>
+            <h5>home page data</h5>
+            <p>1 hello</p>
+            <h5>home page data</h5>
+            <p>1 hello</p>
+            <h5>home page data</h5>
+            <p>1 hello</p>
+
+        </div>
 
 
 
 
-    <div>
-        <?php
-        include "footer.php";
 
-        ?>
 
     </div>
 
 </body>
+<div>
+    <?php
+    include "footer.php";
+
+    ?>
 
 </html>

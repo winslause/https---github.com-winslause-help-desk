@@ -194,7 +194,7 @@ error_reporting(0);
 
     <a href="faqs.php">FAQS</a>
     <?php if ($_SESSION['login']) { ?>
-      <a href="faqs.php">Report</a>
+      <a href="report.php">Report</a>
     <?php } ?>
 
     <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>

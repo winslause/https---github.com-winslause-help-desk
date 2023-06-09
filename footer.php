@@ -177,10 +177,10 @@ error_reporting(0);
         <ul>
 
           <li>
-            <a href="stafflogin.php">STAFF</a>
+            <a href="stafflogin.php">TECHNICAL SUPPORT</a>
           </li>
           <li>
-            <a href="studentlogin.php">STUDENT</a>
+            <a href="studentlogin.php">USER</a>
           </li>
           <li>
             <a href="admin/index.php">ADMIN</a>

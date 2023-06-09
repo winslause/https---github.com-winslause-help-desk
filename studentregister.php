@@ -76,7 +76,7 @@ if (isset($_POST['register'])) {
       </p>
     <![endif]-->
   <div align="center">
-    <h2>Student Register</h2>
+    <h2>User Registrtation</h2>
     <form method="post" style="padding: 30px; width: 30%" name="signup" onSubmit="return valid();">
       <div class="form-group">
         <label for="exampleInputEmail1">Full Name</label>

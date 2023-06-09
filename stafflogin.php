@@ -68,7 +68,7 @@ try {
       </p>
     <![endif]-->
   <div align="center">
-    <h2>Staff Login</h2>
+    <h2>Technical Support</h2>
     <form method="post" style="padding: 30px; width: 30%">
 
       <div class="form-group">

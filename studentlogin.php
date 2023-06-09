@@ -68,7 +68,7 @@ try {
       </p>
     <![endif]-->
   <div align="center">
-    <h2>Student Login</h2>
+    <h2>User Login</h2>
     
       <form method="post" style="padding: 30px; width: 30%" action="">
 
