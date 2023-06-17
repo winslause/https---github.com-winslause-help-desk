@@ -186,7 +186,7 @@ error_reporting(0);
             <a href="admin/index.php">ADMIN</a>
           </li>
           <li>
-            <a href="#support">Support</a>
+            <a href="#support">CONTACT US</a>
           </li>
         </ul>
 

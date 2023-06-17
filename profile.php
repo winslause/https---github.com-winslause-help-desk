@@ -199,7 +199,7 @@ include "header.php";
             $vimage = $_FILES["img1"]["name"];
 
 
-            move_uploaded_file($_FILES["img1"]["tmp_name"], "img/images/" . $_FILES["img1"]["name"]);
+            move_uploaded_file($_FILES["img1"]["tmp_name"], "img/images" . $_FILES["img1"]["name"]);
 
 
             $sql = "UPDATE tblstudents SET fname = :fname1 , anumber = :regn , department = :dep , course = :course , gender = :gender1 , idnumber = :idno , phone= :fon, profilep = :vimage WHERE email=:email ";
