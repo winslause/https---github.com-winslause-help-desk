@@ -136,72 +136,76 @@ error_reporting(0);
   </style>
 </head>
 
-<body>
-  <div class="topnav" id="myTopnav">
-    <a href="index.php" class="active">Home</a>
-    <a href="services.php">SERVICES</a>
-    <a href="about.php">ABOUT US</a>
-    <a href="faqs.php">FAQS</a>
-    <a href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
-    <?php if ($_SESSION['login']) { ?>
-      <div class="dropdown">
-        <button class="dropbtn">
-
-          <?php
-          $email = $_SESSION['login'];
-          $sql = "SELECT fname FROM tblstudents WHERE email=:email ";
-          $query = $dbh->prepare($sql);
-          $query->bindParam(':email', $email, PDO::PARAM_STR);
-          $query->execute();
-          $results = $query->fetchAll(PDO::FETCH_OBJ);
-          if ($query->rowCount() > 0) {
-            foreach ($results as $result) {
-              // echo "<i class='fa-regular fa-user'></i>";
-              
-            }
-            echo htmlentities($result->fname);
-          } ?>
-
-          <?php
-          $email = $_SESSION['login'];
-          $sql = "SELECT * FROM tblstaff WHERE email=:email ";
-          $query = $dbh->prepare($sql);
-          $query->bindParam(':email', $email, PDO::PARAM_STR);
-          $query->execute();
-          $results = $query->fetchAll(PDO::FETCH_OBJ);
-          if ($query->rowCount() > 0) {
-            foreach ($results as $result) {
-
-              // echo "<i class='fa-regular fa-user'></i>";
-              echo htmlentities($result->fullname);
-            }
-          }
-          // echo htmlentities("PROFILE");
-
-          ?>
-
-
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <ul style="background-color: #333;">
-
-          <div class="dropdown-content">
-            <li> <a href="profile.php">VIEW PROFILE</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="logout.php">LOGOUT</a></li>
-          </div>
-        <?php } ?>
-        </ul>
-      </div>
-
-
+<body style="text-align: center; background-color:#ddd; ">
+  <center>
+    <div class="topnav" id="myTopnav">
+      <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="index.php" class="active">Home</a>
+      <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="services.php">SERVICES</a>
+      <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="about.php">ABOUT US</a>
+      <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="faqs.php">FAQS</a>
+      <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
       <?php if ($_SESSION['login']) { ?>
-        <a href="report.php">Report</a>
-      <?php } ?>
+        <div style="margin-right: 20px; margin-top:10px;margin-bottom:10px; text-transform: uppercase;" class="dropdown">
+
+          <button class="dropbtn" style="text-transform: uppercase;">
+
+            <?php
+            $email = $_SESSION['login'];
+            $sql = "SELECT fname FROM tblstudents WHERE email=:email ";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_OBJ);
+            if ($query->rowCount() > 0) {
+              foreach ($results as $result) {
+                // echo "<i class='fa-regular fa-user'></i>";
+
+              }
+              echo htmlentities($result->fname);
+            } ?>
+
+            <?php
+            $email = $_SESSION['login'];
+            $sql = "SELECT * FROM tblstaff WHERE email=:email ";
+            $query = $dbh->prepare($sql);
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_OBJ);
+            if ($query->rowCount() > 0) {
+              foreach ($results as $result) {
+
+                // echo "<i class='fa-regular fa-user'></i>";
+                echo htmlentities($result->fullname);
+              }
+            }
+            // echo htmlentities("PROFILE");
+
+            ?>
 
 
-  </div>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <ul style="background-color: #333;">
+
+            <div class="dropdown-content">
+              <li> <a href="profile.php">VIEW PROFILE</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>
+              <li><a href="logout.php">LOGOUT</a></li>
+            </div>
+          <?php } ?>
+          </ul>
+        </div>
+
+
+        <?php if ($_SESSION['login']) { ?>
+          <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="report.php">REPORT</a>
+          <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a>
+        <?php } ?>
+
+
+    </div>
+  </center>
 
 
   <script>

@@ -5,31 +5,7 @@ include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
     header('location:index.php');
 } else {
-    if (isset($_REQUEST['eid'])) {
-        $eid = intval($_GET['eid']);
-        $status = "2";
-        $sql = "UPDATE tblbooking SET Status=:status WHERE  id=:eid";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':status', $status, PDO::PARAM_STR);
-        $query->bindParam(':eid', $eid, PDO::PARAM_STR);
-        $query->execute();
-        echo "<script>alert('Booking Successfully Cancelled');</script>";
-        echo "<script type='text/javascript'> document.location = 'canceled-bookings.php; </script>";
-    }
-
-
-    if (isset($_REQUEST['aeid'])) {
-        $aeid = intval($_GET['aeid']);
-        $status = 1;
-
-        $sql = "UPDATE tblbooking SET Status=:status WHERE  id=:aeid";
-        $query = $dbh->prepare($sql);
-        $query->bindParam(':status', $status, PDO::PARAM_STR);
-        $query->bindParam(':aeid', $aeid, PDO::PARAM_STR);
-        $query->execute();
-        echo "<script>alert('Booking Successfully Confirmed');</script>";
-        echo "<script type='text/javascript'> document.location = 'confirmed-bookings.php'; </script>";
-    }
+   
 
 
 ?>
@@ -45,7 +21,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         <meta name="author" content="">
         <meta name="theme-color" content="#3e454c">
 
-        <title>New Requests </title>
+        <title>solution </title>
 
         <!-- Font awesome -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -85,7 +61,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
     </head>
 
-    <body>
+    <body style="display: flex;">
         <?php include('includes/header.php'); ?>
 
         <div class="ts-main-content">
@@ -112,16 +88,16 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <?php
                                                 $bid = intval($_GET['bid']);
 
-                                             $sql = 'SELECT * FROM tblstudents s
+                                                $sql = 'SELECT * FROM tblstudents s
 											JOIN tblservice t ON s.email = t.email where t.id=:bid';
-                                             $query = $dbh->prepare($sql);
-                                             $query->bindParam(':bid', $bid, PDO::PARAM_STR);
+                                                $query = $dbh->prepare($sql);
+                                                $query->bindParam(':bid', $bid, PDO::PARAM_STR);
                                                 $query->execute();
                                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
-                                                
+                                                $cnt = 1;
                                                 if ($query->rowCount() > 0) {
                                                     foreach ($results as $result) {                ?>
-                                                        <h3 style="text-align:center; color:red"><?php echo htmlentities($result->fname); ?> Request  Details </h3>
+                                                        <h3 style="text-align:center; color:red"><?php echo htmlentities($result->fname); ?> Request Details </h3>
 
                                                         <tr>
                                                             <th colspan="4" style="text-align:center;color:blue">User Details</th>
@@ -130,63 +106,64 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <th>Booking No.</th>
                                                             <td>#<?php echo htmlentities($result->BookingNumber); ?></td>
                                                             <th>Name</th>
-                                                            <td><?php echo htmlentities($result->FullName); ?></td>
+                                                            <td><?php echo htmlentities($result->fname); ?></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Email Id</th>
-                                                            <td><?php echo htmlentities($result->EmailId); ?></td>
+                                                            <td><?php echo htmlentities($result->email); ?></td>
                                                             <th>Contact No</th>
-                                                            <td><?php echo htmlentities($result->ContactNo); ?></td>
+                                                            <td><?php echo htmlentities($result->phone); ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <th>Address</th>
-                                                            <td><?php echo htmlentities($result->Address); ?></td>
-                                                            <th>City</th>
-                                                            <td><?php echo htmlentities($result->City); ?></td>
+                                                            <th>Registration number(student)</th>
+                                                            <td><?php echo htmlentities($result->anumber); ?></td>
+                                                            <th>National ID Number</th>
+                                                            <td><?php echo htmlentities($result->idnumber); ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <th>Country</th>
-                                                            <td colspan="3"><?php echo htmlentities($result->Country); ?></td>
+                                                            <th>Department</th>
+                                                            <td colspan="3"><?php echo htmlentities($result->department); ?></td>
                                                         </tr>
 
                                                         <tr>
-                                                            <th colspan="4" style="text-align:center;color:blue">Booking Details</th>
+                                                            <th colspan="4" style="text-align:center;color:blue">Request Details</th>
                                                         </tr>
                                                         <tr>
-                                                            <th>Vehicle Name</th>
-                                                            <td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid); ?>"><?php echo htmlentities($result->routename); ?> , <?php echo htmlentities($result->VehicleTitle); ?></td>
-                                                            <th>Booking Date</th>
-                                                            <td><?php echo htmlentities($result->PostingDate); ?></td>
+                                                            <th>Date Reported</th>
+
+                                                            <td><?php echo htmlentities($result->datereported); ?></td>
+                                                            <th>Time Reported</th>
+                                                            <td><?php echo htmlentities($result->timereported); ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <th>Pick Up Date</th>
-                                                            <td><?php echo htmlentities($result->fDate); ?></td>
-                                                            <th> Pick up Time</th>
+                                                            <th>Problem</th>
+                                                            <td><?php echo htmlentities($result->problem); ?></td>
+                                                            <th> Date Checked</th>
                                                             </th>
-                                                            <td><?php echo htmlentities($result->fTime); ?></td>
+                                                            <td><?php echo htmlentities($result->datechecked); ?></td>
                                                         </tr>
                                                         <!--  -->
                                                         <tr>
-                                                            <th>Booking Status</th>
+                                                            <th>Problem Status</th>
                                                             <td><?php
                                                                 if ($result->Status == 0) {
-                                                                    echo htmlentities('Not Confirmed yet');
+                                                                    echo htmlentities('Not Solved yet');
                                                                 } else if ($result->Status == 1) {
                                                                     echo htmlentities('Confirmed');
                                                                 } else {
                                                                     echo htmlentities('Cancelled');
                                                                 }
                                                                 ?></td>
-                                                            <th>Last Updation Date</th>
-                                                            <td><?php echo htmlentities($result->LastUpdationDate); ?></td>
+                                                            <th>Comments</th>
+                                                            <td><?php echo htmlentities($result->comments); ?></td>
                                                         </tr>
 
-                                                        <?php if ($result->Status == 0) { ?>
+                                                        <?php if ($result->status == 0) { ?>
                                                             <tr>
                                                                 <td style="text-align:center" colspan="4">
-                                                                    <a href="bookig-details.php?aeid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Confirm this booking')" class="btn btn-primary"> Confirm Booking</a>
+                                                                    <a href="bookig-details.php?aeid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to send your solution')" class="btn btn-primary">Confirm and exit</a>
 
-                                                                    <a href="bookig-details.php?eid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Cancel this Booking')" class="btn btn-danger"> Cancel Booking</a>
+
                                                                 </td>
                                                             </tr>
                                                         <?php } ?>
@@ -195,10 +172,61 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 } ?>
 
                                             </tbody>
+                                            <form action="" method="post">
                                         </table>
-                                        <form method="post">
-                                            <input name="Submit2" type="submit" class="txtbox4" value="Print" onClick="return f3();" style="cursor: pointer;" />
-                                        </form>
+
+
+
+
+                                        <table border="1" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+
+                                            <tbody>
+
+
+                                                <tr>
+                                                    <th colspan="4" style="text-align:center;color:blue">Provide Feedback</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date Checked</th>
+
+                                                    <td><input type="date" name="datec" placeholder="<?php echo htmlentities($result->datechecked); ?>"></td>
+                                                    <th>Time Checked</th>
+                                                    <td><input type="time" name="timec" placeholder="<?php echo htmlentities($result->timechecked); ?>"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>Comments</th>
+                                                    <td><textarea name="comment" id="" cols="30" rows="10" placeholder="<?php echo htmlentities($result->comments); ?>"></textarea></td>
+                                                    <th>save</th>
+                                                    <td>
+                                                        <button name="feedback" class="btn btn-primary">Confirm Feedback</button>
+                                                        <a href="bookig-details.php?eid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Cancel this request')" class="btn btn-danger"> Cancel Request</a>
+
+
+                                                    </td>
+
+
+                                                </tr>
+                                                <tr>
+
+
+
+                                                </tr>
+
+
+
+
+                                            </tbody>
+
+
+                                            </form>
+
+
+
+                                            <form method="post">
+                                                <input name="Submit2" type="submit" class="txtbox4" value="Print" onClick="return f3();" style="cursor: pointer;" />
+                                            </form>
+
 
                                     </div>
                                 </div>
@@ -211,6 +239,32 @@ if (strlen($_SESSION['alogin']) == 0) {
                     </div>
                 </div>
             </div>
+            <?php
+            if (isset($_POST['feedback'])) {
+                $datec =  $_POST['datec'];
+                $timec =  $_POST['datec'];
+                $comments =  $_POST['comment'];
+                $st = 1;
+                $bid = intval($_GET['bid']);
+                $sql  = "UPDATE tblservice SET datechecked=:datec, timechecked =:timec,comments=:comments,status=:st where id =:bid";
+                $query = $dbh->prepare($sql);
+                $query->bindParam(':datec', $datec, PDO::PARAM_STR);
+                $query->bindParam(':timec', $timec, PDO::PARAM_STR);
+                $query->bindParam(':comments', $comments, PDO::PARAM_STR);
+                $query->bindParam(':st', $st, PDO::PARAM_STR);
+                $query->bindParam(':bid', $bid, PDO::PARAM_STR);
+                $query->execute();
+                $lastInsertId = $dbh->lastInsertId();
+
+
+                // $msg = "successful";
+                echo "<script>alert('feedback sent successfully')</script>";
+                header('location: newservices.php');
+                exit;
+            }
+
+
+            ?>
 
             <!-- Loading Scripts -->
             <script src="js/jquery.min.js"></script>

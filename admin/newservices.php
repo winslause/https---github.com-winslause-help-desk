@@ -128,7 +128,13 @@ if (strlen($_SESSION['alogin']) == 0) {
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
-												foreach ($results as $result) {				?>
+												
+												foreach ($results as $result) {		
+													if(($result->status)== 0)	{
+
+												
+													
+													?>
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($result->fname); ?></td>
@@ -144,9 +150,9 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 
 														<td><?php
-															if ($result->Status == 0) {
-																echo htmlentities('Not Confirmed yet');
-															} else if ($result->Status == 1) {
+															if ($result->status == 0) {
+																echo htmlentities('Not Solved yet');
+															} else if ($result->status == 1) {
 																echo htmlentities('Confirmed');
 															} else {
 																echo htmlentities('Cancelled');
@@ -161,7 +167,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 													</tr>
 											<?php $cnt = $cnt + 1;
-												}
+													}}
 											} ?>
 
 										</tbody>

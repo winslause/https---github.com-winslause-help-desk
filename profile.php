@@ -259,7 +259,22 @@ include "header.php";
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Department</label>
-                            <input name="department" type="text" class="form-control" id="emailid" aria-describedby="emailHelp" placeholder="<?php echo htmlentities($result->department); ?> <?php echo htmlentities($results->department); ?>" />
+                            <select class="form-select" aria-label="Default select example" id="dep" name="department">
+                                <!-- $email = $_SESSION["login"]; -->
+                                <?php $ret = "select * from tblcourse";
+                                $query = $dbh->prepare($ret);
+                                // $query->bindParam(':email',$email, PDO::PARAM_STR);
+                                $query->execute();
+                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                if ($query->rowCount() > 0) {
+                                    foreach ($results as $result) {
+                                ?>
+                                        <option><?php echo htmlentities($result->course); ?></option>
+                                <?php }
+                                } ?>
+
+                            </select><br>
+                            
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Course(student)</label>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('../config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
@@ -19,7 +19,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<meta name="author" content="">
 		<meta name="theme-color" content="#3e454c">
 
-		<title> New Service Requests </title>
+		<title> solved requests </title>
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -59,7 +59,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 	</head>
 
-	<body>
+	<body style="display: flex;">
 		<?php include('includes/header.php'); ?>
 
 		<div class="ts-main-content">
@@ -70,7 +70,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 					<div class="row">
 						<div class="col-md-12">
 
-							<h2 class="page-title">Checked Requests</h2>
+							<h2 class="page-title">Solved Requests</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
@@ -89,8 +89,10 @@ if (strlen($_SESSION['alogin']) == 0) {
 												<th>Problem</th>
 												<th>Date Checked</th>
 												<th>Time Checked</th>
-												<th>Status</th>
+
 												<th>Comments</th>
+												<th>Status</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 										<tfoot>
@@ -104,47 +106,68 @@ if (strlen($_SESSION['alogin']) == 0) {
 												<th>Problem</th>
 												<th>Date Checked</th>
 												<th>Time Checked</th>
-												<th>Status</th>
+
 												<th>Comments</th>
+												<th>Status</th>
+												<th>Action</th>
+
 											</tr>
 										</tfoot>
 										<tbody>
 
 											<?php
-											$status = 0;
-											$sql = "SELECT tblusers.FullName,tblroutes.routeName,tblvehicles.VehicleTitle,tblbooking.fDate,tblbooking.fTime,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id,tblbooking.BookingNumber  from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblroutes on tblvehicles.routename=tblroutes.id where tblbooking.Status=:status";
+
+											//  $status = 0;
+
+											$sql = 'SELECT * FROM tblstudents s
+											JOIN tblservice t ON s.email = t.email';
 											$query = $dbh->prepare($sql);
-											$query->bindParam(':status', $status, PDO::PARAM_STR);
+											// $query->bindParam(':status', $status, PDO::PARAM_STR);
+											// $query->bindParam(':gmail', $gmail, PDO::PARAM_STR);
 											$query->execute();
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
-												foreach ($results as $result) {				?>
-													<tr>
-														<td><?php echo htmlentities($cnt); ?></td>
-														<td><?php echo htmlentities($result->FullName); ?></td>
-														<td><?php echo htmlentities($result->BookingNumber); ?></td>
-														<td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid); ?>"><?php echo htmlentities($result->BrandName); ?> , <?php echo htmlentities($result->VehiclesTitle); ?></td>
-														<td><?php echo htmlentities($result->fDate); ?></td>
-														<td><?php echo htmlentities($result->fTime); ?></td>
-														<td><?php
-															if ($result->Status == 0) {
-																echo htmlentities('Not Confirmed yet');
-															} else if ($result->Status == 1) {
-																echo htmlentities('Confirmed');
-															} else {
-																echo htmlentities('Cancelled');
-															}
-															?></td>
-														<td><?php echo htmlentities($result->PostingDate); ?></td>
-														<td>
+
+												foreach ($results as $result) {
+													if (($result->status) == 1) {
 
 
-															<a href="bookig-details.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
-														</td>
 
-													</tr>
+											?>
+														<tr>
+															<td><?php echo htmlentities($cnt); ?></td>
+															<td><?php echo htmlentities($result->fname); ?></td>
+															<td><?php echo htmlentities($result->email); ?></td>
+
+															<td><?php echo htmlentities($result->department); ?></td>
+															<td><?php echo htmlentities($result->datereported); ?></td>
+															<td><?php echo htmlentities($result->timereported); ?></td>
+															<td><?php echo htmlentities($result->problem); ?></td>
+															<td><?php echo htmlentities($result->datechecked); ?></td>
+															<td><?php echo htmlentities($result->timechecked); ?></td>
+															<td><?php echo htmlentities($result->comments); ?></td>
+
+
+															<td><?php
+																if ($result->status == 0) {
+																	echo htmlentities('Not Solved yet');
+																} else if ($result->status == 1) {
+																	echo htmlentities('Solved');
+																} else {
+																	echo htmlentities('Cancelled');
+																}
+																?></td>
+
+															<td>
+
+
+																<a href="requests.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
+															</td>
+
+														</tr>
 											<?php $cnt = $cnt + 1;
+													}
 												}
 											} ?>
 

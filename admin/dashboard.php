@@ -94,7 +94,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 												<div class="panel-body bk-info text-light">
 													<div class="stat-panel text-center">
 														<?php
-														$sql2 = "SELECT id from tblbooking ";
+														$sql2 = "SELECT id from tblservice where status = 1 ";
 														$query2 = $dbh->prepare($sql2);
 														$query2->execute();
 														$results2 = $query2->fetchAll(PDO::FETCH_OBJ);
@@ -102,10 +102,10 @@ if (strlen($_SESSION['alogin']) == 0) {
 														?>
 
 														<div class="stat-panel-number h1 " style="background-color:cadetblue"><?php echo htmlentities($bookings); ?></div>
-														<div class="stat-panel-title text-uppercase">Total Bookings</div>
+														<div class="stat-panel-title text-uppercase">Checked Requests</div>
 													</div>
 												</div>
-												<a href="manage-bookings.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+												<a href="checkedservices.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
 										<div class="col-md-3">
@@ -113,17 +113,17 @@ if (strlen($_SESSION['alogin']) == 0) {
 												<div class="panel-body bk-warning text-light">
 													<div class="stat-panel text-center">
 														<?php
-														$sql3 = "SELECT id from tblbrands ";
+														$sql3 = "SELECT id from tblservice where status = 0 ";
 														$query3 = $dbh->prepare($sql3);
 														$query3->execute();
 														$results3 = $query3->fetchAll(PDO::FETCH_OBJ);
 														$brands = $query3->rowCount();
 														?>
 														<div class="stat-panel-number h1 " style="background-color:cadetblue"><?php echo htmlentities($brands); ?></div>
-														<div class="stat-panel-title text-uppercase">Listed Routes</div>
+														<div class="stat-panel-title text-uppercase">New Requests</div>
 													</div>
 												</div>
-												<a href="manage-brands.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+												<a href="newservices.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
 									</div>

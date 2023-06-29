@@ -176,12 +176,14 @@ include "header.php";
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Date Reported</label>
-                <input type="date" name="datereported" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+                <input type="date" name="datereported" class="form-control" id="date" aria-describedby="emailHelp" required disabled />
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Time Reported</label>
-                <input type="time" name="timereported" class="form-control" id="appt" aria-describedby="emailHelp" value="00:00" required />
+                <input type="time" name="timereported" class="form-control" id="cutime1" value="<?php
+                                                                                                date_default_timezone_set("Africa/Nairobi");
+                                                                                                echo date('h:i'); ?>" aria-describedby="emailHelp" required disabled />
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <!-- <div class="form-group">
@@ -198,7 +200,7 @@ include "header.php";
             </div> -->
             <div class="form-group">
                 <label for="exampleInputPassword1">Nature of your Problem</label>
-                <textarea style="margin: 5px; height:130px" type="text" name="problem" class="form-control" id="myInput" placeholder="describe your problem" required /></textarea>
+                <textarea style="margin: 5px; height:130px" type="text" name="problem" class="form-control" id="myInput" placeholder="Describe your device type and the type of problem you encountered" required /></textarea>
             </div>
 
             <?php if ($_SESSION['login']) { ?>
@@ -218,13 +220,15 @@ include "header.php";
             $rdate = $_POST['datereported'];
             $rtime = $_POST['timereported'];
             $rproblem = $_POST['problem'];
-           $email = $_SESSION['login'];
-            $sql = "INSERT INTO  tblservice(datereported,timereported,problem,email) VALUES(:rdate,:rtime,:rproblem,:email)";
+            // $email1 = $_SESSION['login'];
+            $email1 = $_SESSION['login'];
+            $sql = "INSERT INTO  tblservice(datereported,timereported,problem,email) VALUES(:rdate,:rtime,:rproblem,:email1)";
             $query = $dbh->prepare($sql);
             $query->bindParam(':rdate', $rdate, PDO::PARAM_STR);
             $query->bindParam(':rtime', $rtime, PDO::PARAM_STR);
             $query->bindParam(':rproblem', $rproblem, PDO::PARAM_STR);
-            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':email1', $email1, PDO::PARAM_STR);
+            // $query->bindParam(':email1', $_SESSION['login'], PDO::PARAM_STR);
             $query->execute();
             $lastInsertId = $dbh->lastInsertId();
             if ($lastInsertId) {
@@ -240,7 +244,27 @@ include "header.php";
         ?>
 
 
-        <script src="" async defer></script>
+        <script>
+            const dateInput = document.getElementById("date");
+            dateInput.value = formatDate();
+            console.log(formatDate())
+
+            function padTo2Digits(num) {
+                return num.toString().padStart(2, "0");
+            }
+
+            function formatDate(date = new Date()) {
+                return [
+                    date.getFullYear(),
+                    padTo2Digits(date.getMonth() + 1),
+                    padTo2Digits(date.getDate()),
+                ].join('-');
+            }
+
+            const currentDate = new Date();
+            const currentTime = currentDate.toLocaleTimeString();
+            document.getElementById("cutime").value = currentTime;
+        </script>
         <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2023 at 01:48 PM
+-- Generation Time: Jun 18, 2023 at 08:59 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.15
 
@@ -20,6 +20,50 @@ SET time_zone = "+00:00";
 --
 -- Database: `students`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `userName` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `profilepic` varchar(130) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `userName`, `password`, `profilepic`) VALUES
+(1, 'admin', '1234', 'picture.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblcourse`
+--
+
+CREATE TABLE `tblcourse` (
+  `id` int(11) NOT NULL,
+  `course` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblcourse`
+--
+
+INSERT INTO `tblcourse` (`id`, `course`) VALUES
+(2, 'physics'),
+(3, 'IT'),
+(4, 'COMP'),
+(5, 'Science'),
+(10, 'Pure and Applied Science'),
+(11, 'Business'),
+(12, 'health');
 
 -- --------------------------------------------------------
 
@@ -46,8 +90,10 @@ CREATE TABLE `tblservice` (
 --
 
 INSERT INTO `tblservice` (`id`, `datereported`, `timereported`, `problem`, `datechecked`, `timechecked`, `status`, `comments`, `pic`, `problempicture`, `email`) VALUES
-(1, '2023-06-09', '15:03', 'My laptop', '', '', 0, '', '', '', 'wen@gmail.com'),
-(2, '2023-06-16', '12:03', 'hhhdhhedhede', '', '', 0, '', '', '', 'wen@gmail.com');
+(6, '2023-06-17', '12:05', 'Hello, my pc broke its screen. i need help', '2023-06-18', '2023-06-18', 1, 'Your pc is now okay', '', '', 'wenbusale383@gmail.com'),
+(7, '2023-06-17', '12:05', 'Can you help me set up my desktop', '2023-06-18', '2023-06-18', 1, 'hello', '', '', 'wenbusale383@gmail.com'),
+(8, '2023-06-18', '18:31', 'i have another problem', '', '', 0, '', '', '', 'wenbusale383@gmail.com'),
+(9, '2023-06-18', '18:31', 'i have another problem', '', '', 0, '', '', '', 'wenbusale383@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -73,7 +119,7 @@ CREATE TABLE `tblstaff` (
 --
 
 INSERT INTO `tblstaff` (`id`, `fullname`, `numberid`, `email`, `password`, `department`, `jobtitle`, `phone`, `gender`, `profilep`) VALUES
-(1, 'Winslause SHIOSO', 8273653, 'kevin@gmail.com', 'f534840f6d9ad80ddf580bdaa5eccbf9', 'Computer', 'Technician', 769525570, 'MALE', '');
+(1, 'Winslause SHIOSO', 8273653, 'kevin@gmail.com', 'f534840f6d9ad80ddf580bdaa5eccbf9', 'Computer', 'fundi', 0, 'MALE', '');
 
 -- --------------------------------------------------------
 
@@ -100,12 +146,23 @@ CREATE TABLE `tblstudents` (
 --
 
 INSERT INTO `tblstudents` (`id`, `fname`, `anumber`, `email`, `password`, `department`, `course`, `gender`, `idnumber`, `phone`, `profilep`) VALUES
-(4, 'Winslause SHIOSO', 'PADVYW108/2023', 'wen@gmail.com', '051493b4952544182b3f2b5e5134f695', 'Computer', 'comp', 'MALE', 8273653, 769525570, ''),
-(5, 'Philip Waweru', 'PA109/JHD/09WW', 'phillip@gmail.com', 'da5fef2ee8f8269e5dccae1c867ddea5', '', '', '', 0, 0, '');
+(11, 'Winslause Shioso', 'PA106/G/7920/19', 'wenbusale383@gmail.com', '105a700ed697d6d352fc2e22e0e60b4d', 'Pure and Applied Science', '', '', 0, 0, '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tblcourse`
+--
+ALTER TABLE `tblcourse`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tblservice`
@@ -130,10 +187,22 @@ ALTER TABLE `tblstudents`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tblcourse`
+--
+ALTER TABLE `tblcourse`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `tblservice`
 --
 ALTER TABLE `tblservice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tblstaff`
@@ -145,7 +214,7 @@ ALTER TABLE `tblstaff`
 -- AUTO_INCREMENT for table `tblstudents`
 --
 ALTER TABLE `tblstudents`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
