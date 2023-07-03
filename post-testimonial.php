@@ -39,7 +39,7 @@ if (strlen($_SESSION['login']) == 0) {
 
   <head>
 
-    <title>Post testimonial</title>
+    <title>Post comment</title>
     <!--Bootstrap -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
     <!--Custome Style -->
@@ -101,11 +101,11 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="page-header_wrap">
           <div class="page-heading">
-            <h1>Post Testimonial</h1>
+            <h1>Post Comment</h1>
           </div>
           <ul class="coustom-breadcrumb">
             <li><a href="#">Home</a></li>
-            <li>Post Testimonial</li>
+            <li>Post Comment</li>
           </ul>
         </div>
       </div>

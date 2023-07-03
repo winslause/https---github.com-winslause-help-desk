@@ -162,7 +162,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 														<td>
 
 
-															<a href="requests.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
+															<a href="requests.php?bid=<?php echo htmlentities($result->id); ?>"> View and Provide Solution</a>
 														</td>
 
 													</tr>

@@ -144,6 +144,7 @@ error_reporting(0);
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="about.php">ABOUT US</a>
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="faqs.php">FAQS</a>
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="javascript:void(0);" style="font-size: 15px" class="icon" onclick="myFunction()">&#9776;</a>
+
       <?php if ($_SESSION['login']) { ?>
         <div style="margin-right: 20px; margin-top:10px;margin-bottom:10px; text-transform: uppercase;" class="dropdown">
 
@@ -177,8 +178,9 @@ error_reporting(0);
                 // echo "<i class='fa-regular fa-user'></i>";
                 echo htmlentities($result->fullname);
               }
+              // echo htmlentities("PROFILE");
             }
-            // echo htmlentities("PROFILE");
+
 
             ?>
 
@@ -198,14 +200,23 @@ error_reporting(0);
         </div>
 
 
+
         <?php if ($_SESSION['login']) { ?>
           <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="report.php">REPORT</a>
           <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a>
         <?php } ?>
 
 
+
     </div>
-  </center>
+  </center >
+  <div style="float: right; margin: 10px;">
+    <?php if ($_SESSION['login'] == 0) { ?>
+      <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="report.php">RE</a> -->
+      <a href="studentlogin.php" class="btn btn-secondary"> LOGIN/Register</a>
+      <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a> -->
+    <?php } ?>
+  </div>
 
 
   <script>

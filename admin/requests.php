@@ -136,7 +136,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             <td><?php echo htmlentities($result->timereported); ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <th>Problem</th>
+                                                            <th>Request</th>
                                                             <td><?php echo htmlentities($result->problem); ?></td>
                                                             <th> Date Checked</th>
                                                             </th>
@@ -144,7 +144,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         </tr>
                                                         <!--  -->
                                                         <tr>
-                                                            <th>Problem Status</th>
+                                                            <th>Request Status</th>
                                                             <td><?php
                                                                 if ($result->Status == 0) {
                                                                     echo htmlentities('Not Solved yet');
@@ -242,28 +242,31 @@ if (strlen($_SESSION['alogin']) == 0) {
                 </div>
             </div>
             <?php
-            if (isset($_POST['feedback'])) {
-                $datec =  $_POST['datec'];
-                $timec =  $_POST['timec'];
-                $comments =  $_POST['comment'];
-                $st = 1;
-                $bid = intval($_GET['bid']);
-                $sql  = "UPDATE tblservice SET datechecked=:datec, timechecked =:timec,comments=:comments,status=:st where id =:bid";
-                $query = $dbh->prepare($sql);
-                $query->bindParam(':datec', $datec, PDO::PARAM_STR);
-                $query->bindParam(':timec', $timec, PDO::PARAM_STR);
-                $query->bindParam(':comments', $comments, PDO::PARAM_STR);
-                $query->bindParam(':st', $st, PDO::PARAM_STR);
-                $query->bindParam(':bid', $bid, PDO::PARAM_STR);
-                $query->execute();
-                $lastInsertId = $dbh->lastInsertId();
+if (isset($_POST['feedback'])) {
+    $datec =  $_POST['datec'];
+    $timec =  $_POST['timec'];
+    $comments =  $_POST['comment'];
+    $st = 1;
+    $bid = intval($_GET['bid']);
+    $sql  = "UPDATE tblservice SET datechecked=:datec, timechecked =:timec,comments=:comments,status=:st where id =:bid";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':datec', $datec, PDO::PARAM_STR);
+    $query->bindParam(':timec', $timec, PDO::PARAM_STR);
+    $query->bindParam(':comments', $comments, PDO::PARAM_STR);
+    $query->bindParam(':st', $st, PDO::PARAM_STR);
+    $query->bindParam(':bid', $bid, PDO::PARAM_STR);
+    $query->execute();
+    $lastInsertId = $dbh->lastInsertId();
+    if($lastInsertId) {
+       
 
+        // $msg = "successful";
+        echo "<script>alert('feedback sent successfully')</script>";
+                    header('location: newservices.php');
 
-                // $msg = "successful";
-                echo "<script>alert('feedback sent successfully')</script>";
-                header('location: newservices.php');
-                exit;
-            }
+        exit;
+    }
+}
 
 
             ?>

@@ -14,7 +14,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 		$query->bindParam(':eid', $eid, PDO::PARAM_STR);
 		$query->execute();
 
-		$msg = "Testimonial Successfully Inacrive";
+		$msg = "Comment Successfully canceled";
 	}
 
 
@@ -28,7 +28,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 		$query->bindParam(':aeid', $aeid, PDO::PARAM_STR);
 		$query->execute();
 
-		$msg = "Testimonial Successfully Active";
+		$msg = "Comment Successfully read";
 	}
 
 
@@ -147,10 +147,10 @@ if (strlen($_SESSION['alogin']) == 0) {
 														<td><?php echo htmlentities($result->datereported); ?></td>
 														<td><?php echo htmlentities($result->timereported); ?></td>
 														<td><?php if ($result->status == "" || $result->status == 0) {
-															?><a href="testimonials.php?aeid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Active')"> Inactive</a>
+															?><a href="testimonials.php?aeid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to confirm read')"> Inactive</a>
 															<?php } else { ?>
 
-																<a href="testimonials.php?eid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Inactive')"> Active</a>
+																<a href="testimonials.php?eid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to cancel')"> Active</a>
 														</td>
 													<?php } ?></td>
 													</tr>

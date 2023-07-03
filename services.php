@@ -67,6 +67,9 @@ include "header.php";
 </head>
 
 <body style="background-color: white;">
+<div>
+    <a class="btn btn-secondary" style="float: right; margin:10px;" href="#form">Scroll Down / Click to request service</a>
+</div>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <div class="container bootstrap snippets bootdey">
         <fieldset>
@@ -161,7 +164,7 @@ include "header.php";
     </div>
     <div align="center">
 
-        <form method="POST" style="margin: 30px; width: 30%; background-color:lightcyan; " name="signup">
+        <form id="form" method="POST" style="margin: 30px; width: 30%; background-color:lightcyan; " name="signup">
             <h2>Request Service</h2>
 
 
@@ -210,7 +213,7 @@ include "header.php";
             <?php if ($_SESSION['login']) { ?>
                 <button style="width: 70%; margin:10px" type=" submit" id="submit" class="btn btn-primary" name="submit" value="signUp">SUBMIT</button>
             <?php } else { ?>
-                <a href="studentlogin.php" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login to request any service</a>
+                <a href="studentlogin.php" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal"><strong><span style="color: #2ac5ed;">LOGIN</span> to request any service</strong></a>
 
 
             <?php } ?>

@@ -106,9 +106,10 @@ include "header.php";
             });
         });
     </script>
-
+   
 </body>
 <div>
+
     <?php
     include "footer.php";
 
