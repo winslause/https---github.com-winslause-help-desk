@@ -189,8 +189,8 @@ error_reporting(0);
 
             <div class="dropdown-content">
               <li> <a href="profile.php">VIEW PROFILE</a></li>
-              <li><a href="#">Link 2</a></li>
-              <li><a href="#">Link 3</a></li>
+              <li><a href="post-testimonial.php">POST A COMMENT</a></li>
+              <li><a href="contact-us.php">CONTACT US</a></li>
               <li><a href="logout.php">LOGOUT</a></li>
             </div>
           <?php } ?>

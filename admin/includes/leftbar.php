@@ -8,7 +8,7 @@
 
 
 
-			<!-- <li><a href="courses.php"><i class="fa fa-book"></i> Managage Courses</a> -->
+				<!-- <li><a href="courses.php"><i class="fa fa-book"></i> Managage Courses</a> -->
 
 			</li>
 
@@ -21,10 +21,10 @@
 
 
 
-			<li><a href="testimonials.php"><i class="fa fa-table"></i> Service Feedback</a></li>
-			<li><a href="manage-conactusquery.php"><i class="fa fa-desktop"></i> Manage Conatctus Query</a></li>
-			<li><a href="reg-users.php"><i class="fa fa-users"></i>Manage Users</a></li>
-			<li><a href="manage-pages.php"><i class="fa fa-files-o"></i> Manage Pages</a></li>
+			<li><a href="testimonials.php"><i class="fa fa-table"></i> Comments</a></li>
+			<!-- <li><a href="manage-conactusquery.php"><i class="fa fa-desktop"></i> Manage Conatctus Query</a></li> -->
+			<li><a href="reg-users.php"><i class="fa fa-users"></i>Registered Users</a></li>
+			<li><a href="manage-conactusquery.php"><i class="fa fa-files-o"></i>User Queries</a></li>
 			<li><a href="update-contactinfo.php"><i class="fa fa-files-o"></i> Update Contact Info</a></li>
 
 			<li><a href="manage-subscribers.php"><i class="fa fa-table"></i> Manage Subscribers</a></li>

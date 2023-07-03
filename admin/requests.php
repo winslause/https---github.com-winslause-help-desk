@@ -5,7 +5,7 @@ include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
     header('location:index.php');
 } else {
-   
+
 
 
 ?>
@@ -161,7 +161,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         <?php if ($result->status == 0) { ?>
                                                             <tr>
                                                                 <td style="text-align:center" colspan="4">
-                                                                    <a href="bookig-details.php?aeid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to send your solution')" class="btn btn-primary">Confirm and exit</a>
+                                                                    <!-- <a href="bookig-details.php?aeid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to send your solution')" class="btn btn-primary">Confirm and exit</a> -->
 
 
                                                                 </td>
@@ -189,9 +189,11 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <tr>
                                                     <th>Date Checked</th>
 
-                                                    <td><input type="date" name="datec" placeholder="<?php echo htmlentities($result->datechecked); ?>"></td>
+                                                    <td><input type="date" name="datec" id="date" readonly></td>
                                                     <th>Time Checked</th>
-                                                    <td><input type="time" name="timec" placeholder="<?php echo htmlentities($result->timechecked); ?>"></td>
+                                                    <td><input type="time" name="timec" value="<?php
+                                                                                                date_default_timezone_set("Africa/Nairobi");
+                                                                                                echo date('H:i:s'); ?>" aria-describedby="emailHelp" min="09:00" max="18:00" readonly /></td>
                                                 </tr>
 
                                                 <tr>
@@ -200,7 +202,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <th>save</th>
                                                     <td>
                                                         <button name="feedback" class="btn btn-primary">Confirm Feedback</button>
-                                                        <a href="bookig-details.php?eid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to Cancel this request')" class="btn btn-danger"> Cancel Request</a>
+                                                        <a href="newservices.php" onclick="return confirm('Do you really want to Cancel this request')" class="btn btn-danger"> Cancel Request</a>
 
 
                                                     </td>
@@ -242,7 +244,7 @@ if (strlen($_SESSION['alogin']) == 0) {
             <?php
             if (isset($_POST['feedback'])) {
                 $datec =  $_POST['datec'];
-                $timec =  $_POST['datec'];
+                $timec =  $_POST['timec'];
                 $comments =  $_POST['comment'];
                 $st = 1;
                 $bid = intval($_GET['bid']);
@@ -280,6 +282,25 @@ if (strlen($_SESSION['alogin']) == 0) {
                 function f3() {
                     window.print();
                 }
+                const dateInput = document.getElementById("date");
+                dateInput.value = formatDate();
+                console.log(formatDate())
+
+                function padTo2Digits(num) {
+                    return num.toString().padStart(2, "0");
+                }
+
+                function formatDate(date = new Date()) {
+                    return [
+                        date.getFullYear(),
+                        padTo2Digits(date.getMonth() + 1),
+                        padTo2Digits(date.getDate()),
+                    ].join('-');
+                }
+
+                const currentDate = new Date();
+                const currentTime = currentDate.toLocaleTimeString();
+                document.getElementById("cutime").value = currentTime;
             </script>
     </body>
 

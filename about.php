@@ -20,7 +20,7 @@ include('header.php');
     <link rel="stylesheet" href="">
     <style>
         body {
-            background-image: url('back.jpg');
+            /* background-image: url('back.jpg'); */
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
@@ -45,14 +45,14 @@ include('header.php');
         <section>
             <h2>Our Team</h2>
             <div class="team">
-                <img style="border-radius: 50%" src="pic.png" width="200px" height="200px" alt="Team member 1">
+                <img style="border-radius: 50%" src="pic.jpg" width="200px" height="200px" alt="Team member 1">
                 <h3 style="color:brown">Wenslause Shioso</h3>
                 <p style="font-size: large;">
                     <b style="color: blue;">Wenslause</b> is our lead technician. He has over 10 years of experience in the IT industry, and he is an expert in all aspects of computer repair.
                 </p>
             </div>
             <div class="team">
-                <img style="border-radius: 50%" src="pic.png" width="200px" height="200px" alt="Team member 2">
+                <img style="border-radius: 50%" src="pic.jpg" width="200px" height="200px" alt="Team member 2">
                 <h3 style="color:brown">Junior Omondi</h3>
                 <p style="font-size: large;"><b style="color: blue;">Omosh</b> is our software specialist. He has a degree in computer science, and is an expert in installing and troubleshooting software.</p>
             </div>

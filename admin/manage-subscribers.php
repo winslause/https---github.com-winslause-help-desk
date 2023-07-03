@@ -120,14 +120,14 @@ foreach($results as $result)
 {				?>	
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($result->SubscriberEmail);?></td>
+											<td><?php echo htmlentities($result->emailn);?></td>
 									
-											<td><?php echo htmlentities($result->PostingDate);?></td>
+											<td><?php echo htmlentities($result->pdate);?></td>
 
 										<td>
 
 
-<a href="manage-subscribers.php?del=<?php echo $result->id;?>" onclick="return confirm('Do you want to delete');"><i class="fa fa-close"></i></a>
+<a title="DELETE" href="manage-subscribers.php?del=<?php echo $result->id;?>" onclick="return confirm('Do you want to delete');"><i class="fa fa-close"></i></a>
 </td>
 
 										</tr>

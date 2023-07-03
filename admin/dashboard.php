@@ -190,7 +190,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 														?>
 
 														<div class="stat-panel-number h1 " style="background-color:cadetblue"><?php echo htmlentities($testimonials); ?></div>
-														<div class="stat-panel-title text-uppercase">Testimonials</div>
+														<div class="stat-panel-title text-uppercase">Comments</div>
 													</div>
 												</div>
 												<a href="testimonials.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>

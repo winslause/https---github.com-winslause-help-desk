@@ -146,45 +146,46 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                                             ?>
-                                                        <tr>
-                                                            <td><?php echo htmlentities($cnt); ?></td>
-                                                            <td><?php echo htmlentities($result->fname); ?></td>
-                                                            <td><?php echo htmlentities($result->email); ?></td>
+                                                            <tr>
+                                                                <td><?php echo htmlentities($cnt); ?></td>
+                                                                <td><?php echo htmlentities($result->fname); ?></td>
+                                                                <td><?php echo htmlentities($result->email); ?></td>
 
-                                                            <td><?php echo htmlentities($result->department); ?></td>
-                                                            <td><?php echo htmlentities($result->datereported); ?></td>
-                                                            <td><?php echo htmlentities($result->timereported); ?></td>
-                                                            <td><?php echo htmlentities($result->problem); ?></td>
-                                                            <td><?php echo htmlentities($result->datechecked); ?></td>
-                                                            <td><?php echo htmlentities($result->timechecked); ?></td>
-                                                            <td><?php echo htmlentities($result->comments); ?></td>
-
-
-                                                            <td><?php
-                                                                if ($result->status == 0) {
-                                                                    echo htmlentities('Not Solved yet');
-                                                                } else if ($result->status == 1) {
-                                                                    echo htmlentities('Solved');
-                                                                } else {
-                                                                    echo htmlentities('Cancelled');
-                                                                }
-                                                                ?></td>
-
-                                                            <td><br>
+                                                                <td><?php echo htmlentities($result->department); ?></td>
+                                                                <td><?php echo htmlentities($result->datereported); ?></td>
+                                                                <td><?php echo htmlentities($result->timereported); ?></td>
+                                                                <td><?php echo htmlentities($result->problem); ?></td>
+                                                                <td><?php echo htmlentities($result->datechecked); ?></td>
+                                                                <td><?php echo htmlentities($result->timechecked); ?></td>
+                                                                <td><?php echo htmlentities($result->comments); ?></td>
 
 
+                                                                <td><?php
+                                                                    if ($result->status == 0) {
+                                                                        echo htmlentities('Not Solved yet');
+                                                                    } else if ($result->status == 1) {
+                                                                        echo htmlentities('Solved');
+                                                                    } else {
+                                                                        echo htmlentities('Cancelled');
+                                                                    }
+                                                                    ?></td>
 
-                                                                <br>
-                                                                <br>
+                                                                <td><br>
 
-                                                                <br>
 
-                                                            </td>
 
-                                                        </tr>
+                                                                    <br>
+                                                                    <br>
+
+                                                                    <br>
+
+                                                                </td>
+
+                                                            </tr>
                                             <?php $cnt = $cnt + 1;
+                                                        }
                                                     }
-                                                }}
+                                                }
                                             } ?>
 
                                         </tbody>
@@ -195,13 +196,139 @@ if (strlen($_SESSION['login']) == 0) {
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-md-12">
 
+                                    <h2 class="page-title">Pending Requests</h2>
+
+                                    <!-- Zero Configuration Table -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Service Info</div>
+                                        <div class="panel-body">
+
+                                            <table width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Full Name</th>
+                                                        <th>Email</th>
+                                                        <th>Department</th>
+                                                        <th>Date Reported</th>
+                                                        <th>Time Reported</th>
+                                                        <th>Problem</th>
+                                                        <th>Date Checked</th>
+                                                        <th>Time Checked</th>
+
+                                                        <th>Comments</th>
+                                                        <th>Status</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Full Name</th>
+                                                        <th>Email</th>
+                                                        <th>Department</th>
+                                                        <th>Date Reported</th>
+                                                        <th>Time Reported</th>
+                                                        <th>Problem</th>
+                                                        <th>Date Checked</th>
+                                                        <th>Time Checked</th>
+
+                                                        <th>Comments</th>
+                                                        <th>Status</th>
+
+
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
+
+                                                    <?php
+
+                                                    //  $status = 0;
+                                                    // $email = $_SESSION['login'];
+
+                                                    $sql = 'SELECT * FROM tblstudents s
+											JOIN tblservice t ON s.email = t.email';
+                                                    $query = $dbh->prepare($sql);
+                                                    // $query->bindParam(':email', $email, PDO::PARAM_STR);
+                                                    // $query->bindParam(':gmail', $gmail, PDO::PARAM_STR);
+                                                    $query->execute();
+                                                    $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                    $cnt = 1;
+                                                    if ($query->rowCount() > 0) {
+
+                                                        foreach ($results as $result) {
+                                                            $email = $_SESSION['login'];
+                                                            if (($result->status) == 0) {
+                                                                if (($result->email) == $email) {
+
+
+
+                                                    ?>
+                                                                    <tr>
+                                                                        <td><?php echo htmlentities($cnt); ?></td>
+                                                                        <td><?php echo htmlentities($result->fname); ?></td>
+                                                                        <td><?php echo htmlentities($result->email); ?></td>
+
+                                                                        <td><?php echo htmlentities($result->department); ?></td>
+                                                                        <td><?php echo htmlentities($result->datereported); ?></td>
+                                                                        <td><?php echo htmlentities($result->timereported); ?></td>
+                                                                        <td><?php echo htmlentities($result->problem); ?></td>
+                                                                        <td><?php echo htmlentities($result->datechecked); ?></td>
+                                                                        <td><?php echo htmlentities($result->timechecked); ?></td>
+                                                                        <td><?php echo htmlentities($result->comments); ?></td>
+
+
+                                                                        <td><?php
+                                                                            if ($result->status == 0) {
+                                                                                echo htmlentities('Pending request');
+                                                                            } else if ($result->status == 1) {
+                                                                                echo htmlentities('Solved');
+                                                                            } else {
+                                                                                echo htmlentities('Cancelled');
+                                                                            }
+                                                                            ?></td>
+
+                                                                        <td><br>
+
+
+
+                                                                            <br>
+                                                                            <br>
+
+                                                                            <br>
+
+                                                                        </td>
+
+                                                                    </tr>
+                                                    <?php $cnt = $cnt + 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    } ?>
+
+                                                </tbody>
+                                            </table>
+
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
 
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+
             </div>
+        </div>
         </div>
 
         <!-- Loading Scripts -->

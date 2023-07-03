@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 error_reporting(0);
 
 ?>
@@ -177,16 +178,16 @@ error_reporting(0);
         <ul>
 
           <li>
-            <a href="stafflogin.php">TECHNICAL SUPPORT</a>
+            <a href="stafflogin.php">TECHNICAL SUPPORT LOGIN</a>
           </li>
           <li>
-            <a href="studentlogin.php">USER</a>
+            <a href="studentlogin.php">USER LOGIN</a>
           </li>
           <li>
-            <a href="admin/index.php">ADMIN</a>
+            <a href="admin/index.php">ADMIN LOGIN</a>
           </li>
           <li>
-            <a href="#support">CONTACT US</a>
+            <a href="contact-us.php">CONTACT US</a>
           </li>
         </ul>
 
@@ -211,15 +212,39 @@ error_reporting(0);
     </li>
   </ul>
 </div> -->
+      <form method="post">
+        <div class="column subscribe">
+          <h3>Newsletter</h3>
+          <div>
+            <input style="width: 70%; background-color:lightcyan; display:none;" type="date" name="datereported" class="form-control" id="date" aria-describedby="emailHelp" readonly />
+            <button name="submit">Subscribe</button>
+          </div>
+      </form>
+      <?php
+      if (isset($_POST['submit'])) {
 
-      <div class="column subscribe">
-        <h3>Newsletter</h3>
-        <div>
-          <input name="newsemail" type="email" placeholder="Your email id here" />
-          <button>Subscribe</button>
-        </div>
+        $email = $_SESSION['login'];
+        $dater = $_POST['datereported'];
 
-      </div>
+        $sql = "INSERT INTO tblsubscribers(emailn, pdate) VALUES(:email, :dater)";
+        $query = $dbh->prepare($sql);
+
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->bindParam(':dater', $dater, PDO::PARAM_STR);
+
+        $query->execute();
+        $lastInsertId = $dbh->lastInsertId();
+        if ($lastInsertId) {
+          echo "<script>alert('You have SUBSCRIBED to our newsletter, we will keep you updated');</script)>";
+        } else {
+          // $error = "You are already subscribed to our newsletter";
+          echo "<script>alert('You are already subscribed to our newsletter');</script)>";
+        }
+      }
+      ?>
+
+
+    </div>
 
     </div>
 
@@ -238,6 +263,27 @@ error_reporting(0);
   </footer>
 
   <script src="" async defer></script>
+  <script>
+    const dateInput = document.getElementById("date");
+    dateInput.value = formatDate();
+    console.log(formatDate())
+
+    function padTo2Digits(num) {
+      return num.toString().padStart(2, "0");
+    }
+
+    function formatDate(date = new Date()) {
+      return [
+        date.getFullYear(),
+        padTo2Digits(date.getMonth() + 1),
+        padTo2Digits(date.getDate()),
+      ].join('-');
+    }
+
+    const currentDate = new Date();
+    const currentTime = currentDate.toLocaleTimeString();
+    document.getElementById("cutime").value = currentTime;
+  </script>
 </body>
 
 </html>
