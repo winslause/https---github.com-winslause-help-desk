@@ -21,7 +21,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         <meta name="author" content="">
         <meta name="theme-color" content="#3e454c">
 
-        <title>solution </title>
+        <title>services</title>
 
         <!-- Font awesome -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -257,12 +257,9 @@ if (isset($_POST['feedback'])) {
     $query->bindParam(':bid', $bid, PDO::PARAM_STR);
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
-    if($lastInsertId) {
-       
-
+    if ($lastInsertId) {
         // $msg = "successful";
-        echo "<script>alert('feedback sent successfully')</script>";
-                    header('location: newservices.php');
+        header('location:newservices.php');
 
         exit;
     }
