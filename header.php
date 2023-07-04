@@ -211,7 +211,7 @@ error_reporting(0);
 
         <?php if ($_SESSION['login']) { ?>
           <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="report.php">REPORT</a>
-          <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a>
+          <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a> -->
         <?php } ?>
 
 
