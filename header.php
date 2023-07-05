@@ -143,10 +143,11 @@ error_reporting(0);
       <div style="float: right; margin: 10px;">
         <?php if ($_SESSION['login'] == 0) { ?>
           <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="report.php">RE</a> -->
-          <a href="studentlogin.php" > LOGIN/REGISTER</a>
+          <a href="studentlogin.php"> LOGIN/REGISTER</a>
           <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a> -->
         <?php } ?>
       </div>
+      
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="index.php" class="active">Home</a>
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="services.php">SERVICES</a>
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="about.php">ABOUT US</a>
@@ -211,7 +212,8 @@ error_reporting(0);
 
         <?php if ($_SESSION['login']) { ?>
           <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="report.php">REPORT</a>
-          <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a> -->
+          <a href="logout.php" style="float: right; margin: 10px;"> LOGOUT</a>
+          <!-- <a style=" margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a> -->
         <?php } ?>
 
 

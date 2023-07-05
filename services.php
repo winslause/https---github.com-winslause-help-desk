@@ -67,9 +67,10 @@ include "header.php";
 </head>
 
 <body style="background-color: white;">
-<div>
-    <!-- <a class="btn btn-secondary" style="float: right; margin:10px;" href="#form">Scroll down</a> -->
-</div>
+    <div>
+        <!-- <a class="btn btn-secondary" style="float: right; margin:10px;" href="#form">Scroll down</a> -->
+        <a href="#form"><i class="bi bi-arrow-down" style="float: right; margin:10px;">scroll down to request service</i></a>
+    </div>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <div class="container bootstrap snippets bootdey">
         <fieldset>

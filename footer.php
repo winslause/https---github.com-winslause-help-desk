@@ -189,6 +189,9 @@ error_reporting(0);
           <li>
             <a href="contact-us.php">CONTACT US</a>
           </li>
+          <li>
+          <li><a href="post-testimonial.php">POST A COMMENT</a></li>
+          </li>
         </ul>
 
       </div>
