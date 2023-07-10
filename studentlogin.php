@@ -58,6 +58,20 @@ try {
   input {
     margin: 1px;
   }
+
+  /* For phones, set the width of the form to 100% */
+  @media (max-width: 768px) {
+    form {
+      width: 100%;
+    }
+  }
+
+  /* For all other devices, set the width of the form to 50% */
+  @media (min-width: 768px) {
+    form {
+      width: 50%;
+    }
+  }
 </style>
 
 <body style="background-color: white;">
@@ -69,53 +83,54 @@ try {
     <![endif]-->
   <div align="center">
     <h2>User Login</h2>
-    
-      <form method="post" style="padding: 30px; width: 30%" action="">
 
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
-          <input type="text" name="emailid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email Number" required />
-          <small id="emailHelp" class="form-text text-muted"></small>
-        </div>
+    <form method="post" style="padding: 30px; width: 30%" action="">
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="text" name="emailid" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email Number" required />
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
 
 
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" name="password" class="form-control" id="myInput" placeholder="Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
-          <input type="checkbox" onclick="myFunction()">Show Password
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="password" class="form-control" id="myInput" placeholder="Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Your password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+        <input type="checkbox" onclick="myFunction()">Show Password
 
-        </div>
+      </div>
 
-        <div class="form-check">
-          <!-- <input type="checkbox" style="margin:1px" class="form-check-input" id="exampleCheck1">
+      <div class="form-check">
+        <!-- <input type="checkbox" style="margin:1px" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
-        </div>
-        <small id="emailHelp" class="form-text text-muted">Dont have an account, <a href="studentregister.php">CLICK HERE</a> to register</small><br />
-        <button type="submit" name="login" class="btn btn-primary">login</button>
-      </form>
-    </div>
-    
+      </div>
+      <small id="emailHelp" class="form-text text-muted">Dont have an account, <a href="studentregister.php">CLICK HERE</a> to register</small><br />
+      <button type="submit" name="login" class="btn btn-primary">login</button>
+      <div id="emailHelp" style="margin-top: 30px;" class="form-text text-muted">Forgot password <a style="margin: 10px;" href="forgotpasword.php">CLICK HERE</a> to reset</div><br />
+    </form>
+  </div>
 
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
-    <script>
-      function myFunction() {
-        let x = document.getElementById("myInput");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
-        }
+  <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+  <script>
+    function myFunction() {
+      let x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
       }
-    </script>
+    }
+  </script>
 
-    <footer style="height:20px;">
-      <?php
-      include 'footer.php';
-      ?>
-    </footer>
+  <footer style="height:20px;">
+    <?php
+    include 'footer.php';
+    ?>
+  </footer>
 </body>
 
 

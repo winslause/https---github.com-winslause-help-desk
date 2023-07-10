@@ -156,6 +156,7 @@ error_reporting(0);
 </head>
 
 <body style=" background-color: #25262e;">
+
   <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -172,6 +173,7 @@ error_reporting(0);
 
       </div>
 
+
       <div class="column links" style=" background-color: #25262e;">
         <h3>Quick Links</h3>
 
@@ -186,43 +188,48 @@ error_reporting(0);
           <li>
             <a href="admin/index.php">ADMIN LOGIN</a>
           </li>
-          <li>
-            <a href="contact-us.php">CONTACT US</a>
-          </li>
-          <li>
-          <li><a href="post-testimonial.php">POST A COMMENT</a></li>
-          </li>
+
         </ul>
 
       </div>
 
 
 
-      <!-- <div class="column links">
-  <h3>Some Links</h3>
-   <ul>
-    <li>
-     <a href="#faq">F.A.Q</a>
-    </li>
-    <li>
-     <a href="#cookies-policy">Cookies Policy</a>
-    </li>
-    <li>
-    <a href="#terms-of-services">Terms Of Service</a>
-    </li>
-    <li>
-    <a href="#support">Support</a>
-    </li>
-  </ul>
-</div> -->
-      <form method="post">
-        <div class="column subscribe">
-          <h3>Newsletter</h3>
-          <div>
-            <input style="width: 70%; background-color:lightcyan; display:none;" type="date" name="datereported" class="form-control" id="date" aria-describedby="emailHelp" readonly />
-            <button name="submit">Subscribe</button>
-          </div>
-      </form>
+      <div class="column links">
+
+        <ul>
+          <?php
+          if ($_SESSION['login']) {
+          ?>
+            <li style="margin-top: 40px;">
+              <a href="contact-us.php">CONTACT US</a>
+            </li>
+            <li>
+            <li><a href="post-testimonial.php">POST A COMMENT</a></li>
+            </li>
+            <li>
+            <li><a href="profile.php">UPDATE PROFILE</a></li>
+            </li>
+            <li>
+            <li><a href="changepassword.php">CHANGE PASSWORD</a></li>
+            </li>
+          <?php
+          }
+          ?>
+        </ul>
+      </div>
+
+      <div class="column links" >
+        <form method="post" style="">
+          <div class="column subscribe">
+            <h3>Newsletter</h3>
+            
+              <input style=" background-color:lightcyan; display:none;" type="date" name="datereported"  id="date" aria-describedby="emailHelp" readonly />
+              <button style="width: fit-content;" name="submit">Subscribe</button>
+            
+        </form>
+      </div>
+
       <?php
       if (isset($_POST['submit'])) {
 

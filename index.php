@@ -147,6 +147,9 @@ include "header.php";
                 </div>
             </div>
         </section>
+        <!--Back to top-->
+        <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
+        <!--/Back to top-->
 
     </div>
     </div>
@@ -159,6 +162,7 @@ include "header.php";
     <script src="assets/js/scrollReveal.js"></script>
     <!-- CUSTOM SCRIPT-->
     <script src="assets/scripts/custom.js"></script>
+
 
 </body>
 <div>

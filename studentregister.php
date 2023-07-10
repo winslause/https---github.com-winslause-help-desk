@@ -11,6 +11,8 @@ if (isset($_POST['register'])) {
   $fname = $_POST['fname'];
   $regn = $_POST['regnumber'];
   $emailn = $_POST['emailid'];
+  $phonen = $_POST['phonen'];
+
   $dep = $_POST['dep'];
   $password = md5($_POST['password']);
   // $vimage = $_FILES["img1"]["name"];
@@ -25,11 +27,12 @@ if (isset($_POST['register'])) {
 
 
 
-  $sql = "INSERT INTO  tblstudents(fname,anumber,email,department,password) VALUES(:fname,:regn,:emailn,:dep,:password)";
+  $sql = "INSERT INTO  tblstudents(fname,anumber,email,phone,department,password) VALUES(:fname,:regn,:emailn, :phonen, :dep,:password)";
   $query = $dbh->prepare($sql);
   $query->bindParam(':fname', $fname, PDO::PARAM_STR);
   $query->bindParam(':regn', $regn, PDO::PARAM_STR);
   $query->bindParam(':emailn', $emailn, PDO::PARAM_STR);
+  $query->bindParam(':phonen', $phonen, PDO::PARAM_STR);
   $query->bindParam(':dep', $dep, PDO::PARAM_STR);
   $query->bindParam(':password', $password, PDO::PARAM_STR);
   // $query->bindParam(':vimage', $vimage, PDO::PARAM_STR);
@@ -39,6 +42,7 @@ if (isset($_POST['register'])) {
   $query->execute();
   $lastInsertId = $dbh->lastInsertId();
   if ($lastInsertId) {
+    header('location:studentlogin.php');
     echo "<script>alert('Registration successfull. Now you can login');</script>";
     header('location:studentlogin.php');
   } else {
@@ -85,6 +89,20 @@ if (isset($_POST['register'])) {
   input {
     margin: 1px;
   }
+
+  /* For phones, set the width of the form to 100% */
+  @media (max-width: 768px) {
+    form {
+      width: 100%;
+    }
+  }
+
+  /* For all other devices, set the width of the form to 50% */
+  @media (min-width: 768px) {
+    form {
+      width: 50%;
+    }
+  }
 </style>
 
 <body style="background-color: white;">
@@ -110,6 +128,10 @@ if (isset($_POST['register'])) {
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input name="emailid" type="email" class="form-control" id="emailid" aria-describedby="emailHelp" placeholder="Enter email" onBlur="checkAvailability()" required />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Phone Number</label>
+        <input name="phonen" type="number" class="form-control" aria-describedby="emailHelp" placeholder="Enter Phone" required />
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Department</label>

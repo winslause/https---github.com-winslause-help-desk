@@ -17,6 +17,9 @@ include "header.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         #services {}
 
@@ -39,6 +42,8 @@ include "header.php";
 
         .services-list .service-block .text-block {
             margin-left: 58px;
+            width: 100%;
+            float: center;
         }
 
         .services-list .service-block .text-block .name {
@@ -63,109 +68,211 @@ include "header.php";
             color: #2ac5ed;
             font-weight: bold;
         }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
+
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #474e5d;
+            color: white;
+        }
+
+        .container {
+            padding: 0 16px;
+        }
+
+        .container::after,
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .title {
+            color: grey;
+        }
+
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+
+            .card {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            form {
+                width: 100%;
+                position: relative;
+
+            }
+        }
     </style>
 </head>
 
-<body style="background-color: white;">
+<body style="background-color: white; borber:none;">
+
     <div>
         <!-- <a class="btn btn-secondary" style="float: right; margin:10px;" href="#form">Scroll down</a> -->
-        <a href="#form"><i class="bi bi-arrow-down" style="float: right; margin:10px;">scroll down to request service</i></a>
+
     </div>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <div class="container bootstrap snippets bootdey">
-        <fieldset>
-            <section id="services" class="current">
-                <div class="services-top">
-                    <div class="container bootstrap snippets bootdey">
-                        <div class="row text-center">
-                            <div class="col-sm-12 col-md-12 col-md-12">
+
+        <section style="display:block; margin:2px">
+            <div class="services-top">
+                <div style="">
+                    <center>
+                        <div>
+                            <div>
                                 <h2>What We Offer</h2>
                                 <h2 style="font-size: 60px;line-height: 60px;margin-bottom: 20px;font-weight: 900;"></h2>
                                 <p>We are <span class="highlight">experienced</span> and <span class="highlight">dedicated</span> to provide ontime services.</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-offset-1 col-sm-12 col-md-12 col-md-10">
-                                <div class="services-list">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-md-4 col-md-4">
-                                            <div class="service-block" style="visibility: visible;">
-                                                <div class="ico fa fa-magic highlight"></div>
-                                                <div class="text-block">
-                                                    <div class="name">Network Management</div>
-                                                    <div class="info">Installation and Repairs</div>
+                    </center>
+                    <div>
+                        <div>
+                            <div>
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="ico fa fa-magic highlight"></div>
+                                        <div class="card">
+
+                                            <div class="text-block">
+                                                <a href="#form">
+                                                    <div class="name" style="font-style:bold; color:aqua; font-size: large; text-transform: uppercase;"><i><b>Network Management</b></i></div>
+                                                </a>
+                                                <div class="info">Installation and Repairs</div>
+                                                <strong>
                                                     <div class="">
                                                         The following are some of the services that can be provided as part of network management installation and repairs:
 
-                                                        <ul>
-                                                            <li>Fault detection and resolution: This involves identifying and fixing problems with the network, such as slow performance, connectivity issues, and security breaches.</li>
-                                                            <li>Performance monitoring: This involves tracking the performance of the network to ensure that it is meeting the needs of the organization.
+                                                        <ul style="display: inline-block;
+  text-align: left;">
+                                                            <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Fault detection and resolution: This involves identifying and fixing problems with the network, such as slow performance, connectivity issues, and security breaches.</li>
+                                                            <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Performance monitoring: This involves tracking the performance of the network to ensure that it is meeting the needs of the organization.
                                                             </li>
-                                                            <li>Security management: This involves implementing and maintaining security measures to protect the network from unauthorized access, viruses, and other threats.
+                                                            <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Security management: This involves implementing and maintaining security measures to protect the network from unauthorized access, viruses, and other threats.
                                                             </li>
-                                                            <li>Configuration management: This involves tracking the configuration of the network to ensure that it is consistent and up-to-date.</li>
+                                                            <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Configuration management: This involves tracking the configuration of the network to ensure that it is consistent and up-to-date.</li>
                                                         </ul>
 
 
                                                     </div>
-                                                </div>
+                                                </strong>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-md-4 col-md-4">
-                                            <div class="service-block" style="visibility: visible;">
-                                                <div class="ico fa fa-code highlight"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="column">
+                                            <div class="ico fa fa-code highlight"></div>
+                                            <div class="card">
                                                 <div class="text-block">
-                                                    <div class="name">Computer Repairs</div>
+                                                    <a href="#form">
+                                                        <div class="name" style="font-style:bold; color:aqua; font-size: large; text-transform: uppercase;"><i><b>Computer Repairs</b></i></div>
+                                                    </a>
+                                                    <p> Component repairs and part replacements</p>
+                                                    <strong>
+                                                        <div>If you are experiencing problems with your computer, we encourage you to contact our technical support team. We will be happy to help you diagnose the problem and find the best solution for your needs. Here are some of the benefits of using our computer repair services:</div>
 
-                                                    <div>If you are experiencing problems with your computer, we encourage you to contact our technical support team. We will be happy to help you diagnose the problem and find the best solution for your needs.</div>
 
-                                                    Here are some of the benefits of using our computer repair services:
-                                                    <ul>
-                                                        <li>Fast and reliable service</li>
-                                                        <li>Competitive prices</li>
-                                                        <li>Expert technicians</li>
-                                                        <li>Convenient location</li>
-                                                        <li>Free estimates</li>
+                                                    </strong>
+                                                    <ul style="display: inline-block;
+  text-align: left;">
+                                                        <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Fast and reliable service</li>
+                                                        <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Competitive prices</li>
+                                                        <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Expert technicians</li>
+                                                        <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Convenient location</li>
+                                                        <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Free estimates</li>
                                                     </ul>
                                                 </div>
 
-
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4 col-md-4">
-                                            <div class="service-block" style="visibility: visible;">
-                                                <div class="ico fa fa-pencil highlight"></div>
-                                                <div class="text-block">
-                                                    <div class="name">Software Installations</div>
-
-                                                    <div class="">
-                                                        Our technical support system offers a variety of software installation services, including:
-                                                        <ul>
-                                                            <li>Operating system installation</li>
-                                                            <li>Application installation</li>
-                                                            <li>Driver installation</li>
-                                                            <li>Software updates</li>
-                                                            <li>Software removal</li>
-                                                        </ul>
-
-
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
 
                                     </div>
+                                    <div class="row">
+                                        <div class="column">
+                                            <div class="ico fa fa-pencil highlight"></div>
+                                            <div class="card">
+                                                <a href="#form">
+                                                    <div class="name" style="font-style:bold; color:aqua; font-size: large; text-transform: uppercase;"><i><b>Software Installations</b></i></div>
+                                                </a>
+                                                <p> Installations, configuration and activation.</p>
+                                                <strong>
+                                                    <div class="">
+                                                        Our technical support system offers a variety of software installation services, including:
+                                                    </div>
+                                                </strong>
+                                                <ul style="display: inline-block;
+  text-align: left;">
+                                                    <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Operating system installation and activation</li>
+                                                    <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Applications installation and activations/Licencing e.g. microsoft office</li>
+                                                    <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Driver installation</li>
+                                                    <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Software updates</li>
+                                                    <li><span style="margin: 10px;" class="glyphicon glyphicon-circle-arrow-right">Troubleshooting and repairs</li>
+                                                </ul>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </fieldset>
+            </div>
+    </div>
+    </section>
+    </fieldset>
     </div>
     <div align="center">
 
-        <form id="form" method="POST" style="margin: 30px; width: 30%; background-color:lightcyan; " name="signup">
+        <form id="form" method="POST" style="margin: 30px; width: 75%;  background-color:lightcyan; display:block; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);" name="signup">
             <h2>Request Service</h2>
 
 

@@ -148,7 +148,7 @@ if (isset($_POST['send'])) {
           </div>
         </div>
         <div class="col-md-6">
-          <h3>Contact Info</h3>
+          <h3 style="color: darkslategray;">Contact Info</h3>
           <div class="contact_detail">
             <?php
             $pagetype = $_GET['type'];

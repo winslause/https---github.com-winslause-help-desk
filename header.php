@@ -136,19 +136,21 @@ error_reporting(0);
   </style>
 </head>
 
-<body style="text-align: center; background-color:#ddd; ">
+<body style="text-align: center; background-color:#ddd; display:block; " onclick="show()">
+
 
   <center>
     <div class="topnav" id="myTopnav">
       <div style="float: right; margin: 10px;">
-        <?php if ($_SESSION['login'] == 0) { ?>
+        <?php if (!$_SESSION['login']) { ?>
           <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="report.php">RE</a> -->
           <a href="studentlogin.php"> LOGIN/REGISTER</a>
           <!-- <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="help.php">HELP ME OUT</a> -->
         <?php } ?>
       </div>
-      
+
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="index.php" class="active">Home</a>
+
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="services.php">SERVICES</a>
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="about.php">ABOUT US</a>
       <a style="margin-right: 20px; margin-top:10px;margin-bottom:10px;" href="faqs.php">FAQS</a>
@@ -202,6 +204,7 @@ error_reporting(0);
               <li> <a href="profile.php">VIEW PROFILE</a></li>
               <li><a href="post-testimonial.php">POST A COMMENT</a></li>
               <li><a href="contact-us.php">CONTACT US</a></li>
+              <li><a href="changepassword.php">CHANGE PASSWORD</a></li>
               <li><a href="logout.php">LOGOUT</a></li>
             </div>
           <?php } ?>
