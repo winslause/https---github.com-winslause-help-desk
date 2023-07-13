@@ -250,19 +250,19 @@ include "header.php";
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Full Name</label>
-                            <input type="text" name="fullname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo htmlentities($result->fullname); ?> <?php echo htmlentities($results->fname); ?>" required />
+                            <input type="text" name="fullname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo htmlentities($result->fullname); ?> <?php echo htmlentities($results->fname); ?>"  />
                             <small id="emailHelp" class="form-text text-muted"></small>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Registration Number(student)</label>
-                            <input type="text" name="regnumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" <?php echo htmlentities($results->anumber); ?>" required />
+                            <input type="text" name="regnumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value=" <?php echo htmlentities($results->anumber); ?>" />
                             <small id=" emailHelp" class="form-text text-muted"></small>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Course(student)</label>
-                            <input type="text" name="course" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($results->course); ?>" required />
+                            <label for="exampleInputPassword1">Course/Job Title</label>
+                            <input type="text" name="course" class="form-control" id="exampleInputPassword1" value="<?php echo htmlentities($results->course); ?>" />
                         </div>
 
 
@@ -282,17 +282,17 @@ include "header.php";
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">ID Number</label>
-                            <input type="number" name="idnumber" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->numberid); ?> <?php echo htmlentities($results->idnumber); ?>"" required />
+                            <input type="number" name="idnumber" class="form-control" id="exampleInputPassword1" value="<?php echo htmlentities($results->idnumber);?>"  />
                         </div>
 
                         <div class=" form-group">
                             <label for="exampleInputPassword1">Phone Number</label>
-                            <input type="number" name="phone" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->phone); ?> <?php echo htmlentities($results->phone); ?>"" required />
+                            <input type="number" name="phone" class="form-control" id="exampleInputPassword1" value="<?php echo htmlentities($results->phone); ?>"  />
                         </div>
-                        <div class=" form-group">
+                         <!--<div class=" form-group">
                             <label for="exampleInputPassword1">Job Title (Tech)</label>
-                            <input type="text" name="jobtitle" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->jobtitle); ?> />
-                        </div>
+                            <input type="text" name="jobtitle" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->jobtitle); ?> " />
+                        </div>-->
                         <div class="form-group">
                             <label for="exampleInputEmail1">Department</label>
                             <select class="form-select" aria-label="Default select example" id="dep" name="department">

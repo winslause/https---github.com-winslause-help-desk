@@ -218,6 +218,8 @@ if (isset($_POST['register'])) {
 
 
 
+
+
 </body>
 <?php
 include 'footer.php';
