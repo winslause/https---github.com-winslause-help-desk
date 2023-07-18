@@ -95,7 +95,7 @@ if (strlen($_SESSION['login']) == 1) {
     </head>
 
     <body>
-        <?php include('header.php'); ?>
+        <?php include('header1.php'); ?>
         <div class="ts-main-content">
             <?php include('includes/leftbar.php'); ?>
             <div class="content-wrapper">

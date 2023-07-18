@@ -67,7 +67,7 @@ if (strlen($_SESSION['login']) == 0) {
     </head>
 
     <body style="background-color: #fff;">
-        <?php include('header.php'); ?>
+        <?php include('header1.php'); ?>
 
 
         <div class="ts-main-content">
@@ -88,35 +88,35 @@ if (strlen($_SESSION['login']) == 0) {
                                     <table width="100%">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Full Name</th>
-                                                <th>Email</th>
-                                                <th>Department</th>
-                                                <th>Date Reported</th>
-                                                <th>Time Reported</th>
-                                                <th>Problem</th>
-                                                <th>Date Checked</th>
-                                                <th>Time Checked</th>
+                                                <th style="border: 1px solid black;">#</th>
+                                                <th style="border: 1px solid black;">Full Name</th>
+                                                <th style="border: 1px solid black;">Email</th>
+                                                <th style="border: 1px solid black;">Department</th>
+                                                <th style="border: 1px solid black;">Date Reported</th>
+                                                <th style="border: 1px solid black;">Time Reported</th>
+                                                <th style="border: 1px solid black;">Problem</th>
+                                                <th style="border: 1px solid black;">Date Checked</th>
+                                                <th style="border: 1px solid black;">Time Checked</th>
 
-                                                <th>Comments</th>
-                                                <th>Status</th>
+                                                <th style="border: 1px solid black;">Comments</th>
+                                                <th style="border: 1px solid black;">Status</th>
 
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Full Name</th>
-                                                <th>Email</th>
-                                                <th>Department</th>
-                                                <th>Date Reported</th>
-                                                <th>Time Reported</th>
-                                                <th>Problem</th>
-                                                <th>Date Checked</th>
-                                                <th>Time Checked</th>
+                                                <th style="border: 1px solid black;">#</th>
+                                                <th style="border: 1px solid black;">Full Name</th>
+                                                <th style="border: 1px solid black;">Email</th>
+                                                <th style="border: 1px solid black;">Department</th>
+                                                <th style="border: 1px solid black;">Date Reported</th>
+                                                <th style="border: 1px solid black;">Time Reported</th>
+                                                <th style="border: 1px solid black;">Problem</th>
+                                                <th style="border: 1px solid black;">Date Checked</th>
+                                                <th style="border: 1px solid black;">Time Checked</th>
 
-                                                <th>Comments</th>
-                                                <th>Status</th>
+                                                <th style="border: 1px solid black;">Comments</th>
+                                                <th style="border: 1px solid black;">Status</th>
 
 
                                             </tr>
@@ -147,28 +147,28 @@ if (strlen($_SESSION['login']) == 0) {
 
                                             ?>
                                                             <tr>
-                                                                <td><?php echo htmlentities($cnt); ?></td>
-                                                                <td><?php echo htmlentities($result->fname); ?></td>
-                                                                <td><?php echo htmlentities($result->email); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($cnt); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->fname); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->email); ?></td>
 
-                                                                <td><?php echo htmlentities($result->department); ?></td>
-                                                                <td><?php echo htmlentities($result->datereported); ?></td>
-                                                                <td><?php echo htmlentities($result->timereported); ?></td>
-                                                                <td><?php echo htmlentities($result->problem); ?></td>
-                                                                <td><?php echo htmlentities($result->datechecked); ?></td>
-                                                                <td><?php echo htmlentities($result->timechecked); ?></td>
-                                                                <td><?php echo htmlentities($result->comments); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->department); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->datereported); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->timereported); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->problem); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->datechecked); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->timechecked); ?></td>
+                                                                <td style="border: 1px solid black;"><?php echo htmlentities($result->comments); ?></td>
 
 
-                                                                <td><?php
-                                                                    if ($result->status == 0) {
-                                                                        echo htmlentities('Not Solved yet');
-                                                                    } else if ($result->status == 1) {
-                                                                        echo htmlentities('Solved');
-                                                                    } else {
-                                                                        echo htmlentities('Cancelled');
-                                                                    }
-                                                                    ?></td>
+                                                                <td style="border: 1px solid black;"><?php
+                                                                                                        if ($result->status == 0) {
+                                                                                                            echo htmlentities('Not Solved yet');
+                                                                                                        } else if ($result->status == 1) {
+                                                                                                            echo htmlentities('Solved');
+                                                                                                        } else {
+                                                                                                            echo htmlentities('Cancelled');
+                                                                                                        }
+                                                                                                        ?></td>
 
                                                                 <td><br>
 
@@ -210,34 +210,34 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Full Name</th>
-                                                        <th>Email</th>
-                                                        <th>Department</th>
-                                                        <th>Date Reported</th>
-                                                        <th>Time Reported</th>
-                                                        <th>Problem</th>
-                                                        <th>Date Checked</th>
-                                                        <th>Time Checked</th>
+                                                        <th style="border: 1px solid black;">Full Name</th>
+                                                        <th style="border: 1px solid black;">Email</th>
+                                                        <th style="border: 1px solid black;">Department</th>
+                                                        <th style="border: 1px solid black;">Date Reported</th>
+                                                        <th style="border: 1px solid black;">Time Reported</th>
+                                                        <th style="border: 1px solid black;">Problem</th>
+                                                        <th style="border: 1px solid black;">Date Checked</th>
+                                                        <th style="border: 1px solid black;">Time Checked</th>
 
-                                                        <th>Comments</th>
-                                                        <th>Status</th>
+                                                        <th style="border: 1px solid black;">Comments</th>
+                                                        <th style="border: 1px solid black;">Status</th>
 
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Full Name</th>
-                                                        <th>Email</th>
-                                                        <th>Department</th>
-                                                        <th>Date Reported</th>
-                                                        <th>Time Reported</th>
-                                                        <th>Problem</th>
-                                                        <th>Date Checked</th>
-                                                        <th>Time Checked</th>
+                                                        <th style="border: 1px solid black;">Full Name</th>
+                                                        <th style="border: 1px solid black;">Email</th>
+                                                        <th style="border: 1px solid black;">Department</th>
+                                                        <th style="border: 1px solid black;">Date Reported</th>
+                                                        <th style="border: 1px solid black;">Time Reported</th>
+                                                        <th style="border: 1px solid black;">Problem</th>
+                                                        <th style="border: 1px solid black;">Date Checked</th>
+                                                        <th style="border: 1px solid black;">Time Checked</th>
 
-                                                        <th>Comments</th>
-                                                        <th>Status</th>
+                                                        <th style="border: 1px solid black;">Comments</th>
+                                                        <th style="border: 1px solid black;">Status</th>
 
 
                                                     </tr>
@@ -269,27 +269,27 @@ if (strlen($_SESSION['login']) == 0) {
                                                     ?>
                                                                     <tr>
                                                                         <td><?php echo htmlentities($cnt); ?></td>
-                                                                        <td><?php echo htmlentities($result->fname); ?></td>
-                                                                        <td><?php echo htmlentities($result->email); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->fname); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->email); ?></td>
 
-                                                                        <td><?php echo htmlentities($result->department); ?></td>
-                                                                        <td><?php echo htmlentities($result->datereported); ?></td>
-                                                                        <td><?php echo htmlentities($result->timereported); ?></td>
-                                                                        <td><?php echo htmlentities($result->problem); ?></td>
-                                                                        <td><?php echo htmlentities($result->datechecked); ?></td>
-                                                                        <td><?php echo htmlentities($result->timechecked); ?></td>
-                                                                        <td><?php echo htmlentities($result->comments); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->department); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->datereported); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->timereported); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->problem); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->datechecked); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->timechecked); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->comments); ?></td>
 
 
-                                                                        <td><?php
-                                                                            if ($result->status == 0) {
-                                                                                echo htmlentities('Pending request');
-                                                                            } else if ($result->status == 1) {
-                                                                                echo htmlentities('Solved');
-                                                                            } else {
-                                                                                echo htmlentities('Cancelled');
-                                                                            }
-                                                                            ?></td>
+                                                                        <td style="border: 1px solid black;"><?php
+                                                                                                                if ($result->status == 0) {
+                                                                                                                    echo htmlentities('Pending request');
+                                                                                                                } else if ($result->status == 1) {
+                                                                                                                    echo htmlentities('Solved');
+                                                                                                                } else {
+                                                                                                                    echo htmlentities('Cancelled');
+                                                                                                                }
+                                                                                                                ?></td>
 
                                                                         <td><br>
 

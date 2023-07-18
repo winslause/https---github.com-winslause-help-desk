@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "config.php";
-include "header.php";
+include "header1.php";
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +71,7 @@ include "header.php";
     </style>
 </head>
 
-<body style="background-color: gray;">
+<body style="background-color:lightgray;">
 
     <!-- Lets update our profiles -->
     <?php if ($_SESSION['login']) { ?>

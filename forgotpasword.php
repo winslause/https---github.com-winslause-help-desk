@@ -97,7 +97,7 @@ if (isset($_POST['reset'])) {
 
 <body>
     <?php
-    include "header.php";
+    include "header1.php";
     ?>
 
     <center>

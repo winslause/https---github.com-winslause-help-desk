@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('config.php');
-include "header.php";
+include "header1.php";
 if (isset($_POST['send'])) {
   $name = $_POST['fullname'];
   $email = $_POST['email'];
@@ -69,7 +69,7 @@ if (isset($_POST['send'])) {
   </style>
 </head>
 
-<body>
+<body style="background-color: white;">
 
 
 
@@ -113,28 +113,28 @@ if (isset($_POST['send'])) {
                   // echo htmlentities($result->fname);
                 }
               } ?>
-              <div class="form-group">
-                <label class="control-label">Full Name <span>*</span></label>
+              <div class="form-group" style="display: none;">
+                <label class=" control-label">Full Name <span>*</span></label>
                 <input style="background-color:lightgray;" type="text" name="fullname" class="form-control white_bg" id="fullname" value="<?php echo htmlentities($results->fname); ?>" readonly>
               </div>
-              <div class="form-group">
-                <label class="control-label">Email Address <span>*</span></label>
+              <div class="form-group" style="display: none;">
+                <label class=" control-label">Email Address <span>*</span></label>
                 <input style="background-color:lightgray;" type="email" name="email" class="form-control white_bg" id="emailaddress" value="<?php echo htmlentities($results->email); ?>" readonly>
               </div>
-              <div class="form-group">
-                <label class="control-label">Phone Number <span>*</span></label>
+              <div class="form-group" style="display: none;">
+                <label class=" control-label">Phone Number <span>*</span></label>
                 <input style="background-color:lightgray;" type="text" name="contactno" class="form-control white_bg" id="phonenumber" value="<?php echo htmlentities($results->phone); ?>" readonly maxlength="10" pattern="[0-9]+">
               </div>
               <div class="form-group">
                 <label class="control-label">Message <span>*</span></label>
                 <textarea class="form-control white_bg" name="message" rows="4" required></textarea>
               </div>
-              <div class="form-group">
+              <div class="form-group" style="display: none;">
                 <label for="exampleInputEmail1">Date Posted</label>
                 <input style="background-color:lightgray;" type="date" name="datereported" class="form-control" id="date" aria-describedby="emailHelp" readonly />
                 <small id="emailHelp" class="form-text text-muted"></small>
               </div>
-              <div class="form-group">
+              <div class="form-group" style="display:none">
                 <label for="exampleInputEmail1">Time Posted</label>
                 <input style="background-color:lightgray;" type="time" name="timereported" class="form-control" id="cutime1" value="<?php
                                                                                                                                     date_default_timezone_set("Africa/Nairobi");
@@ -183,9 +183,7 @@ if (isset($_POST['send'])) {
   <!-- /Contact-us-->
 
 
-  <!--Footer -->
-  <?php include('Ffooter.php'); ?>
-  <!-- /Footer-->
+
 
   <!--Back to top-->
   <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>

@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('config.php');
+include "header1.php";
 ?>
 
 <html>
@@ -19,13 +20,15 @@ include('config.php');
 <link href="asset/css/style.css" rel="stylesheet" />
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="stylesheet" href="style.css"> -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" /> -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
 
 
-<?php
-include "header.php";
-?>
+</html>
+
+
+
+
 </div>
 <style>
     body {
@@ -39,11 +42,7 @@ include "header.php";
 <body style="background-color: white;">
     <div>
 
-        <div class="col-6 col-md-4 order-2 order-md-1">
-            <form action="services.php" class="site-block-top-search">
-                <input type="text" name="query" class="form-control border-0" placeholder="Search" value="<?php echo $search_query; ?>">
-            </form>
-        </div>
+
 
 
         <div class="site-section">
@@ -171,4 +170,4 @@ include "header.php";
 
     ?>
 
-</html>
+    </html>

@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('config.php');
-include('header.php');
+include('header1.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,7 @@ include('header.php');
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             margin: 8px;
-           
+
         }
 
         .about-section {
@@ -85,7 +85,7 @@ include('header.php');
     </style>
 </head>
 
-<body>
+<body style="background-color: white;">
 
     <div class="about-section">
         <h1>About Us Page</h1>
@@ -111,41 +111,44 @@ include('header.php');
     <h2 style="text-align:center">Our Team</h2>
     <div class="row">
         <div class="column">
-            <div class="card">
+            <div class="card" style="align-items:center">
                 <img src="pic.jpg" alt="Jane" width="200" height="200" style="border-radius: 50%">
-                <div class="container">
+                <div style="align-items:center">
                     <h2>Jane </h2>
                     <p class="title">Hardware Expert</p>
                     <p>Some text that describes me.</p>
                     <p>jane@example.com</p>
-                    <p><button class="button"></button></p>
+                    
                 </div>
+                <p style="width: 90%; "><button class="button" style="width: 90%;"></button></p>
             </div>
         </div>
 
         <div class="column">
-            <div class="card">
+            <div class="card" style="align-items:center">
                 <img src="pic.jpg" alt="Mike" width="200" height="200" style="border-radius: 50%">
-                <div class="container">
+                <div style="align-items:center">
                     <h2>Mike </h2>
                     <p class="title">Software Developer</p>
                     <p>Some text that describes me.</p>
                     <p>mike@example.com</p>
-                    <p><button class="button"></button></p>
+
                 </div>
+                <p style="width: 90%;"><button class="button" style="width: 90%;"></button></p>
             </div>
         </div>
 
         <div class="column">
-            <div class="card">
+            <div class="card" style="align-items:center">
                 <img src="pic.jpg" alt="John" width="200" height="200" style="border-radius: 50%">
-                <div class="container">
+                <div style="align-items:center">
                     <h2>John </h2>
                     <p class="title">Network Administratos</p>
                     <p>Some text that describes me.</p>
                     <p>john@example.com</p>
-                    <p><button class="button"></button></p>
+
                 </div>
+                <p style="width: 90%;"><button class="button" style="width: 90%;"></button></p>
             </div>
         </div>
     </div>

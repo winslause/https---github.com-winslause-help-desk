@@ -8,12 +8,12 @@ if (strlen($_SESSION['login']) == 0) {
   if (isset($_POST['submit'])) {
     $name = $_POST['fullname'];
     $email = $_SESSION['login'];
-    
+
     $contactno = $_POST['contactno'];
     $datep = $_POST["datereported"];
     $timep = $_POST["timereported"];
     $testimonoial = $_POST['testimonial'];
-   
+
     $sql = "INSERT INTO  tbltestimonial(fullname, UserEmail, phone, datereported, timereported, Testimonial) VALUES(:name, :email, :contactno, :datep, :timep, :testimonoial)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':name', $name, PDO::PARAM_STR);
@@ -89,12 +89,12 @@ if (strlen($_SESSION['login']) == 0) {
     </style>
   </head>
 
-  <body>
+  <body style="background-color: white;">
 
 
 
     <!--Header-->
-    <?php include('header.php'); ?>
+    <?php include('header1.php'); ?>
     <!-- /Header -->
     <!--Page Header-->
     <section class="page-header profile_page">
@@ -144,7 +144,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                 <div class="col-md-6 col-lg-10">
                   <div class="profile_wrap">
-                    <h5 class="uppercase underline">Post a Testimonial</h5>
+                    <h5 class="uppercase underline">Post a comment</h5>
                     <?php if ($error) { ?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
                     <form method="post">
 
@@ -161,26 +161,26 @@ if (strlen($_SESSION['login']) == 0) {
                           // echo htmlentities($result->fname);
                         }
                       } ?>
-                      <div class="form-group">
-                        <label class="control-label">Full Name <span>*</span></label>
+                      <div class="form-group" style="display: none;>
+                        <label class=" control-label">Full Name <span>*</span></label>
                         <input style="background-color:lightgray;" type="text" name="fullname" class="form-control white_bg" id="fullname" value="<?php echo htmlentities($results->fname); ?>" readonly>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label">Email Address <span>*</span></label>
+                      <div class="form-group" style="display: none;>
+                        <label class=" control-label">Email Address <span>*</span></label>
                         <input style="background-color:lightgray;" type="email" name="email" class="form-control white_bg" id="emailaddress" value="<?php echo htmlentities($results->email); ?>" readonly>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label">Phone Number <span>*</span></label>
+                      <div class="form-group" style="display: none;>
+                        <label class=" control-label">Phone Number <span>*</span></label>
                         <input style="background-color:lightgray;" type="text" name="contactno" class="form-control white_bg" id="phonenumber" value="<?php echo htmlentities($results->phone); ?>" readonly maxlength="10" pattern="[0-9]+">
                       </div>
-                     
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Date Posted</label>
+
+                      <div class="form-group" style="display: none;>
+                        <label for=" exampleInputEmail1">Date Posted</label>
                         <input style="background-color:lightgray;" type="date" name="datereported" class="form-control" id="date" aria-describedby="emailHelp" readonly />
                         <small id="emailHelp" class="form-text text-muted"></small>
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Time Posted</label>
+                      <div class="form-group" style="display: none;>
+                        <label for=" exampleInputEmail1">Time Posted</label>
                         <input style="background-color:lightgray;" type="time" name="timereported" class="form-control" id="cutime1" value="<?php
                                                                                                                                             date_default_timezone_set("Africa/Nairobi");
                                                                                                                                             echo date('H:i:s'); ?>" aria-describedby="emailHelp" min="09:00" max="18:00" readonly />
@@ -190,14 +190,14 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                       <div class="form-group">
-                        <label class="control-label">Testimonail</label>
+                        <label class="control-label">Comment</label>
 
                         <textarea class="form-control white_bg" name="testimonial" rows="4" cols="100" required=""></textarea>
                       </div>
 
 
                       <div class="form-group">
-                        <button type="submit" name="submit" class="btn">Save <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+                        <button type="submit" name="submit" class="btn btn-primary">Save <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
                       </div>
                     </form>
                   </div>
