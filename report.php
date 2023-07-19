@@ -66,7 +66,7 @@ if (strlen($_SESSION['login']) == 0) {
 
     </head>
 
-    <body style="background-color: #fff;">
+    <body style="background-color: #fff; font-size:15px;">
         <?php include('header1.php'); ?>
 
 
@@ -88,7 +88,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     <table width="100%">
                                         <thead>
                                             <tr>
-                                                <th style="border: 1px solid black;">#</th>
+                                                <th>#</th>
                                                 <th style="border: 1px solid black;">Full Name</th>
                                                 <th style="border: 1px solid black;">Email</th>
                                                 <th style="border: 1px solid black;">Department</th>
@@ -105,7 +105,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th style="border: 1px solid black;">#</th>
+                                                <th>#</th>
                                                 <th style="border: 1px solid black;">Full Name</th>
                                                 <th style="border: 1px solid black;">Email</th>
                                                 <th style="border: 1px solid black;">Department</th>
@@ -147,7 +147,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                                             ?>
                                                             <tr>
-                                                                <td style="border: 1px solid black;"><?php echo htmlentities($cnt); ?></td>
+                                                                <td><?php echo htmlentities($cnt); ?></td>
                                                                 <td style="border: 1px solid black;"><?php echo htmlentities($result->fname); ?></td>
                                                                 <td style="border: 1px solid black;"><?php echo htmlentities($result->email); ?></td>
 
@@ -210,7 +210,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th style="border: 1px solid black;">Full Name</th>
+                                                        <th>Full Name</th>
                                                         <th style="border: 1px solid black;">Email</th>
                                                         <th style="border: 1px solid black;">Department</th>
                                                         <th style="border: 1px solid black;">Date Reported</th>
@@ -268,11 +268,12 @@ if (strlen($_SESSION['login']) == 0) {
 
                                                     ?>
                                                                     <tr>
-                                                                        <td><?php echo htmlentities($cnt); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($cnt); ?></td>
                                                                         <td style="border: 1px solid black;"><?php echo htmlentities($result->fname); ?></td>
                                                                         <td style="border: 1px solid black;"><?php echo htmlentities($result->email); ?></td>
 
                                                                         <td style="border: 1px solid black;"><?php echo htmlentities($result->department); ?></td>
+                                                                        <td style="border: 1px solid black;"><?php echo htmlentities($result->datereported); ?></td>
                                                                         <td style="border: 1px solid black;"><?php echo htmlentities($result->datereported); ?></td>
                                                                         <td style="border: 1px solid black;"><?php echo htmlentities($result->timereported); ?></td>
                                                                         <td style="border: 1px solid black;"><?php echo htmlentities($result->problem); ?></td>

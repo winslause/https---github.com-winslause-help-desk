@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "config.php";
-// include 'header1.php';
+//  include 'header.php';
 ?>
 
 
@@ -25,7 +25,7 @@ try {
       // $_SESSION['fullname'] = $results->fname;
       // $currentpage = $_SERVER['REQUEST_URI'];
       // echo "<script type='text/javascript'> document.location = '$currentpage'; </script>";
-      header('location:index.php');
+      header('Location: index.php');
     } else {
 
       echo "<script>alert('Invalid Details');</script>";
@@ -84,7 +84,7 @@ try {
   <div align="center">
     <h2>User Login</h2>
 
-    <form method="post" style="padding: 30px; width: 30%" action="">
+    <form method="post" style="padding: 30px;" action="">
 
       <div class="form-group">
         <label for="exampleInputEmail1">Email</label>

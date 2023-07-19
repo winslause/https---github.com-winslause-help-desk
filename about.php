@@ -85,9 +85,9 @@ include('header1.php');
     </style>
 </head>
 
-<body style="background-color: white;">
+<body style="background-color:white;  borber:none; font-size:large; margin-top:0px; top:0px">
 
-    <div class="about-section">
+    <div class="about-section" style="top:0px;">
         <h1>About Us Page</h1>
         <p>
 
@@ -111,44 +111,47 @@ include('header1.php');
     <h2 style="text-align:center">Our Team</h2>
     <div class="row">
         <div class="column">
-            <div class="card" style="align-items:center">
-                <img src="pic.jpg" alt="Jane" width="200" height="200" style="border-radius: 50%">
-                <div style="align-items:center">
-                    <h2>Jane </h2>
-                    <p class="title">Hardware Expert</p>
-                    <p>Some text that describes me.</p>
-                    <p>jane@example.com</p>
-                    
-                </div>
-                <p style="width: 90%; "><button class="button" style="width: 90%;"></button></p>
+            <div class="card">
+                <center>
+                    <img src="img.jpg" alt="Jane" width="200" height="200" style="border-radius: 50%">
+                    <div class="container">
+                        <h2>Jane </h2>
+                        <p class="title">Hardware Expert</p>
+                        <p>Some text that describes me.</p>
+                        <p>jane@example.com</p>
+                        <p><button class="button"></button></p>
+                    </div>
+                </center>
             </div>
         </div>
 
         <div class="column">
-            <div class="card" style="align-items:center">
-                <img src="pic.jpg" alt="Mike" width="200" height="200" style="border-radius: 50%">
-                <div style="align-items:center">
-                    <h2>Mike </h2>
-                    <p class="title">Software Developer</p>
-                    <p>Some text that describes me.</p>
-                    <p>mike@example.com</p>
-
-                </div>
-                <p style="width: 90%;"><button class="button" style="width: 90%;"></button></p>
+            <div class="card">
+                <center>
+                    <img src="img.jpg" alt="Mike" width="200" height="200" style="border-radius: 50%">
+                    <div class="container">
+                        <h2>Mike </h2>
+                        <p class="title">Software Developer</p>
+                        <p>Some text that describes me.</p>
+                        <p>mike@example.com</p>
+                        <p><button class="button"></button></p>
+                    </div>
+                </center>
             </div>
         </div>
 
         <div class="column">
-            <div class="card" style="align-items:center">
-                <img src="pic.jpg" alt="John" width="200" height="200" style="border-radius: 50%">
-                <div style="align-items:center">
-                    <h2>John </h2>
-                    <p class="title">Network Administratos</p>
-                    <p>Some text that describes me.</p>
-                    <p>john@example.com</p>
-
-                </div>
-                <p style="width: 90%;"><button class="button" style="width: 90%;"></button></p>
+            <div class="card">
+                <center>
+                    <img src="img.jpg" alt="John" width="200" height="200" style="border-radius: 50%">
+                    <div class="container">
+                        <h2>John </h2>
+                        <p class="title">Network Administratos</p>
+                        <p>Some text that describes me.</p>
+                        <p>john@example.com</p>
+                        <p><button class="button"></button></p>
+                    </div>
+                </center>
             </div>
         </div>
     </div>

@@ -6,6 +6,8 @@ include('config.php');
 if (isset($_POST['reset'])) {
     // Get user email from form
     $email = $_POST['email'];
+    $_SESSION['email'] = $_POST['email'];
+
 
     function generateRandomString($n)
     {
@@ -23,6 +25,7 @@ if (isset($_POST['reset'])) {
 
 
     $new_password = generateRandomString(8);
+
 
     // Hash the new password
     $password = md5($new_password);
@@ -94,8 +97,27 @@ if (isset($_POST['reset'])) {
         padding: 20px;
     } */
 </style>
+<style>
+    input {
+        margin: 1px;
+    }
 
-<body>
+    /* For phones, set the width of the form to 100% */
+    @media (max-width: 768px) {
+        form {
+            width: 100%;
+        }
+    }
+
+    /* For all other devices, set the width of the form to 50% */
+    @media (min-width: 768px) {
+        form {
+            width: 50%;
+        }
+    }
+</style>
+
+<body style="background-color:white; font-size:15px">
     <?php
     include "header1.php";
     ?>
@@ -105,7 +127,7 @@ if (isset($_POST['reset'])) {
 
 
         <div>
-            <form action="" method="post" style="width: 40%; display:block; box-shadow:darkkhaki; margin:100px">
+            <form action="" method="post" display:block; box-shadow:darkkhaki; margin:100px">
 
                 <div class="col-lg-10 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img style="margin-top: 0px;" class="rounded-circle mt-5" width="100px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
@@ -113,9 +135,11 @@ if (isset($_POST['reset'])) {
                     </div>
 
                 </div>
+                <div class="form-group">
 
-                <label for="fname">Enter Email</label><br>
-                <input type="email" id="fname" name="email" placeholder="enter email.."><br>
+                    <label for="fname"></label><br>
+                    <input type="email" id="fname" name="email" placeholder="enter email.."><br>
+                </div>
 
 
 
@@ -123,7 +147,7 @@ if (isset($_POST['reset'])) {
 
                 <input type="submit" class="btn btn-success" name="reset" value="Resest Password">
             </form><br>
-            <button class="btn btn-success"><a style="color:white" href="studentlogin.php"> Login</a></button>
+            <button class="btn btn-secondary"><a style="color:white" href="studentlogin.php"> Login</a></button>
 
 
         </div>

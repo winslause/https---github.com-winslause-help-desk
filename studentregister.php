@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "config.php";
-include "header1.php";
+// include "header1.php";
 ?>
 
 
@@ -114,7 +114,7 @@ if (isset($_POST['register'])) {
     <![endif]-->
   <div align="center">
     <h2>User Registrtation</h2>
-    <form method="post" style="padding: 30px; width: 30%" name="signup" onSubmit="return valid();">
+    <form method="post" style="padding: 30px; " name="signup" onSubmit="return valid();">
       <div class="form-group">
         <label for="exampleInputEmail1">Full Name</label>
         <input type="text" name="fname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Full name" required />

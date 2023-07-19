@@ -71,7 +71,7 @@ include "header1.php";
     </style>
 </head>
 
-<body style="background-color:lightgray;">
+<body style="background-color: gray; font-size:15px;">
 
     <!-- Lets update our profiles -->
     <?php if ($_SESSION['login']) { ?>
@@ -250,7 +250,7 @@ include "header1.php";
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Full Name</label>
-                            <input type="text" name="fullname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo htmlentities($result->fullname); ?> <?php echo htmlentities($results->fname); ?>"  />
+                            <input type="text" name="fullname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo htmlentities($result->fullname); ?> <?php echo htmlentities($results->fname); ?>" />
                             <small id="emailHelp" class="form-text text-muted"></small>
                         </div>
                         <div class="form-group">
@@ -282,14 +282,14 @@ include "header1.php";
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">ID Number</label>
-                            <input type="number" name="idnumber" class="form-control" id="exampleInputPassword1" value="<?php echo htmlentities($results->idnumber);?>"  />
+                            <input type="number" name="idnumber" class="form-control" id="exampleInputPassword1" value="<?php echo htmlentities($results->idnumber); ?>" />
                         </div>
 
                         <div class=" form-group">
                             <label for="exampleInputPassword1">Phone Number</label>
-                            <input type="number" name="phone" class="form-control" id="exampleInputPassword1" value="<?php echo htmlentities($results->phone); ?>"  />
+                            <input type="number" name="phone" class="form-control" id="exampleInputPassword1" value="<?php echo htmlentities($results->phone); ?>" />
                         </div>
-                         <!--<div class=" form-group">
+                        <!--<div class=" form-group">
                             <label for="exampleInputPassword1">Job Title (Tech)</label>
                             <input type="text" name="jobtitle" class="form-control" id="exampleInputPassword1" placeholder="<?php echo htmlentities($result->jobtitle); ?> " />
                         </div>-->
